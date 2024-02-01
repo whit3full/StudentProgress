@@ -29,5 +29,10 @@ namespace StudentProgress.Pages
         {
 
         }
+
+        private void BtnGuest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

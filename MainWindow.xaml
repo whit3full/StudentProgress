@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentProgress"
         mc:Ignorable="d"
-        Title="Учет успеваемости" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        Title="Учет успеваемости" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/апт.jpg">
     <Grid>
         <Grid.RowDefinitions>
-            
             <RowDefinition Height="1*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+        <Frame ContentRendered="FrameMain_ContentRendered"
+            x:Name="FrameMain" Grid.Row="0"/>
+        <Grid Grid.Row="1" Background="#5FD"/>
+        <Button x:Name="ButBack" Content="Назад"
+                Click="ButBack_Click" Grid.Row="1" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

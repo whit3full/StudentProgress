@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudentProgress.ApplicationData;
+using StudentProgress.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,25 @@ namespace StudentProgress
         public MainWindow()
         {
             InitializeComponent();
+            AppFrame.MainFrame = FrameMain;
+            FrameMain.Navigate(new Authorization());
+        }
+
+        private void ButBack_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.GoBack();
+        }
+
+        private void FrameMain_ContentRendered(object sender, EventArgs e)
+        {
+            if (FrameMain.CanGoBack)
+            {
+                ButBack.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ButBack.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:StudentProgress"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBox" x:Key="TxB">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Lab">
+            <Setter Property="FontFamily" Value="Times new Roman"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#5FD1dd"/>
+        </Style>
     </Application.Resources>
 </Application>

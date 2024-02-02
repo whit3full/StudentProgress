@@ -17,10 +17,8 @@ namespace StudentProgress.ApplicationData
         public int ID_User { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public Nullable<int> ID_Teacher { get; set; }
-        public Nullable<int> ID_Student { get; set; }
+        public int ID_Role { get; set; }
     
-        public virtual Student Student { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

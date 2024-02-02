@@ -7,6 +7,7 @@
         <Style TargetType="TextBox" x:Key="TxB">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
         <Style TargetType="Label" x:Key="Lab">
             <Setter Property="FontFamily" Value="Times new Roman"/>
@@ -17,6 +18,11 @@
             <Setter Property="Height" Value="30"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Background" Value="#5FD1dd"/>
+        </Style>
+        <Style TargetType="PasswordBox" x:Key="PwB">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
     </Application.Resources>
 </Application>

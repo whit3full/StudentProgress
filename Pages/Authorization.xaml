@@ -32,7 +32,9 @@
         <Button Content="Войти" Grid.Row="3" Grid.Column="2" 
                 x:Name="BtnJoin" Click="BtnJoin_Click"/>
         <Button x:Name="BtnGuest" Content="Гость" Grid.Row="3" Click="BtnGuest_Click"/>
-        <TextBox x:Name="TbLogin" Grid.Column="1" Grid.Row="1" Style="{StaticResource TxB}"/>
-        <TextBox x:Name="TbPassword" Grid.Column="1" Grid.Row="2" Style="{StaticResource TxB}"/>
+        <TextBox x:Name="TbLogin" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Grid.Column="1" Grid.Row="1" Style="{StaticResource TxB}"/>
+        <PasswordBox x:Name="TbPassword" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                 Grid.Column="1" Grid.Row="2" Style="{StaticResource PwB}" Visibility="Visible"/>
     </Grid>
 </Page>

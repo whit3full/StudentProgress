@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="ID_Role" />
           </Key>
-          <Property Name="ID_Role" Type="int" Nullable="false" />
+          <Property Name="ID_Role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Session">
@@ -92,8 +92,7 @@
           <Property Name="ID_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="ID_Teacher" Type="int" />
-          <Property Name="ID_Student" Type="int" />
+          <Property Name="ID_Role" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Journal_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="1" />
@@ -179,27 +178,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="ID_Student" />
+            <Principal Role="Role">
+              <PropertyRef Name="ID_Role" />
             </Principal>
             <Dependent Role="Users">
-              <PropertyRef Name="ID_Student" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Users_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="ID_Teacher" />
-            </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="ID_Teacher" />
+              <PropertyRef Name="ID_Role" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -241,12 +228,8 @@
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Teacher" EntitySet="Teacher" />
           </AssociationSet>
-          <AssociationSet Name="FK_Users_Student" Association="Self.FK_Users_Student">
-            <End Role="Student" EntitySet="Student" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_Teacher" Association="Self.FK_Users_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
@@ -285,8 +268,9 @@
           <Key>
             <PropertyRef Name="ID_Role" />
           </Key>
-          <Property Name="ID_Role" Type="Int32" Nullable="false" />
+          <Property Name="ID_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
         </EntityType>
         <EntityType Name="Session">
           <Key>
@@ -316,7 +300,6 @@
           <Property Name="NumberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Student" FromRole="Student" ToRole="Session" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Student" FromRole="Student" ToRole="Users" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -349,7 +332,6 @@
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Teacher" FromRole="Teacher" ToRole="Journal" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Teacher" FromRole="Teacher" ToRole="Session" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Teacher_Subject" FromRole="Teacher" ToRole="Subject" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Teacher" FromRole="Teacher" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -358,10 +340,8 @@
           <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="ID_Teacher" Type="Int32" />
-          <Property Name="ID_Student" Type="Int32" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Users_Student" FromRole="Users" ToRole="Student" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_Users_Teacher" FromRole="Users" ToRole="Teacher" />
+          <Property Name="ID_Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Journal_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="1" />
@@ -411,6 +391,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_Role" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Session_Student">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="Session" Type="Self.Session" Multiplicity="*" />
@@ -435,18 +427,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="ID_Student" />
-            </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="ID_Student" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Teacher_Subject">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
@@ -456,18 +436,6 @@
             </Principal>
             <Dependent Role="Teacher">
               <PropertyRef Name="ID_Subject" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Users_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="ID_Teacher" />
-            </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="ID_Teacher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -497,6 +465,10 @@
             <End Role="Teacher" EntitySet="Teacher" />
             <End Role="Journal" EntitySet="Journal" />
           </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
           <AssociationSet Name="FK_Session_Student" Association="Self.FK_Session_Student">
             <End Role="Student" EntitySet="Student" />
             <End Role="Session" EntitySet="Session" />
@@ -505,17 +477,9 @@
             <End Role="Teacher" EntitySet="Teacher" />
             <End Role="Session" EntitySet="Session" />
           </AssociationSet>
-          <AssociationSet Name="FK_Users_Student" Association="Self.FK_Users_Student">
-            <End Role="Student" EntitySet="Student" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
           <AssociationSet Name="FK_Teacher_Subject" Association="Self.FK_Teacher_Subject">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Teacher" EntitySet="Teacher" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_Teacher" Association="Self.FK_Users_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -618,8 +582,7 @@
                 <ScalarProperty Name="ID_User" ColumnName="ID_User" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
-                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

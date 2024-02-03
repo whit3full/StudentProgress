@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentProgress.ApplicationData
+namespace StudentProgress.Models
 {
     using System;
     using System.Collections.Generic;
@@ -27,6 +27,13 @@ namespace StudentProgress.ApplicationData
         public string Patronymic { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string NumberPhone { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return Surname + " " + Name + " " + Patronymic;
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Journal> Journal { get; set; }

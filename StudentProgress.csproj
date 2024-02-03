@@ -74,48 +74,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ApplicationData\AppFrame.cs" />
-    <Compile Include="ApplicationData\Databases.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Databases.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Databases.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Databases.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Databases.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Group.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Journal.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Role.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Session.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Student.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Subject.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\sysdiagrams.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Teacher.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ApplicationData\Users.cs">
-      <DependentUpon>Databases.tt</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -128,17 +86,66 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Session.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Statement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Journal.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Session.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subject.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Teacher.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainForm.xaml.cs">
       <DependentUpon>MainForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Session.xaml.cs">
+      <DependentUpon>Session.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Statement.xaml.cs">
       <DependentUpon>Statement.xaml</DependentUpon>
@@ -160,12 +167,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ApplicationData\Databases.edmx">
+    <EntityDeploy Include="Models\DataBaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Databases.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataBaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ApplicationData\Databases.edmx.diagram">
-      <DependentUpon>Databases.edmx</DependentUpon>
+    <None Include="Models\DataBaseModel.edmx.diagram">
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -186,19 +193,21 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationData\Databases.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Databases.edmx</DependentUpon>
-      <LastGenOutput>Databases.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ApplicationData\Databases.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Databases.edmx</DependentUpon>
-      <LastGenOutput>Databases.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\Student.png" />
     <Resource Include="Resources\Group.png" />
     <Resource Include="Resources\Book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>DataBaseModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

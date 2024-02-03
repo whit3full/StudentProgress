@@ -7,23 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentProgress.ApplicationData
+namespace StudentProgress.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Journal
+    public partial class Users
     {
-        public int ID_Journal { get; set; }
-        public int ID_Subject { get; set; }
-        public int ID_Group { get; set; }
-        public int ID_Student { get; set; }
-        public System.DateTime Date { get; set; }
-        public string Grade { get; set; }
-        public Nullable<decimal> GraveAVG { get; set; }
+        public int ID_User { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public int ID_Role { get; set; }
     
-        public virtual Group Group { get; set; }
-        public virtual Student Student { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

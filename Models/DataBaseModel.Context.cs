@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentProgress.ApplicationData
+namespace StudentProgress.Models
 {
     using System;
     using System.Data.Entity;
@@ -15,16 +15,17 @@ namespace StudentProgress.ApplicationData
     
     public partial class StudentProgressEntities : DbContext
     {
-        public static StudentProgressEntities _context;
+        private static StudentProgressEntities _instance;
+
+        public static StudentProgressEntities GetContext()
+        {
+            if( _instance == null )
+                _instance = new StudentProgressEntities();
+            return _instance;
+        }
         public StudentProgressEntities()
             : base("name=StudentProgressEntities")
         {
-        }
-        public static StudentProgressEntities GetContext()
-        {
-            if (_context == null)
-                _context = new StudentProgressEntities();
-            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

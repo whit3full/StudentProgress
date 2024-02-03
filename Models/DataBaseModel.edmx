@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище StudentProgressModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище StudentProgressModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="ID_Group" />
           </Key>
-          <Property Name="ID_Group" Type="int" Nullable="false" />
+          <Property Name="ID_Group" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Course" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
@@ -18,13 +18,12 @@
           <Key>
             <PropertyRef Name="ID_Journal" />
           </Key>
-          <Property Name="ID_Journal" Type="int" Nullable="false" />
+          <Property Name="ID_Journal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Subject" Type="int" Nullable="false" />
           <Property Name="ID_Group" Type="int" Nullable="false" />
           <Property Name="ID_Student" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="Grade" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="GraveAVG" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -37,11 +36,11 @@
           <Key>
             <PropertyRef Name="ID_session" />
           </Key>
-          <Property Name="ID_session" Type="int" Nullable="false" />
-          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Teacher" Type="int" Nullable="false" />
-          <Property Name="Group" Type="int" Nullable="false" />
-          <Property Name="Student" Type="int" Nullable="false" />
+          <Property Name="ID_session" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Subject" Type="int" Nullable="false" />
+          <Property Name="ID_Teacher" Type="int" Nullable="false" />
+          <Property Name="ID_Group" Type="int" Nullable="false" />
+          <Property Name="ID_Student" Type="int" Nullable="false" />
           <Property Name="TypeOfCertification" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Grade" Type="nchar" MaxLength="10" Nullable="false" />
@@ -63,6 +62,7 @@
           </Key>
           <Property Name="ID_Subject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullSubject" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -138,7 +138,7 @@
               <PropertyRef Name="ID_Group" />
             </Principal>
             <Dependent Role="Session">
-              <PropertyRef Name="Group" />
+              <PropertyRef Name="ID_Group" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -150,7 +150,19 @@
               <PropertyRef Name="ID_Student" />
             </Principal>
             <Dependent Role="Session">
-              <PropertyRef Name="Student" />
+              <PropertyRef Name="ID_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID_Subject" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="ID_Subject" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -162,7 +174,7 @@
               <PropertyRef Name="ID_Teacher" />
             </Principal>
             <Dependent Role="Session">
-              <PropertyRef Name="Teacher" />
+              <PropertyRef Name="ID_Teacher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -220,6 +232,10 @@
             <End Role="Student" EntitySet="Student" />
             <End Role="Session" EntitySet="Session" />
           </AssociationSet>
+          <AssociationSet Name="FK_Session_Subject" Association="Self.FK_Session_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
           <AssociationSet Name="FK_Session_Teacher" Association="Self.FK_Session_Teacher">
             <End Role="Teacher" EntitySet="Teacher" />
             <End Role="Session" EntitySet="Session" />
@@ -233,87 +249,135 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentProgressModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="StudentProgressEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Group" EntityType="StudentProgressModel.Group" />
+          <EntitySet Name="Journal" EntityType="StudentProgressModel.Journal" />
+          <EntitySet Name="Role" EntityType="StudentProgressModel.Role" />
+          <EntitySet Name="Session" EntityType="StudentProgressModel.Session" />
+          <EntitySet Name="Student" EntityType="StudentProgressModel.Student" />
+          <EntitySet Name="Subject" EntityType="StudentProgressModel.Subject" />
+          <EntitySet Name="sysdiagrams" EntityType="StudentProgressModel.sysdiagrams" />
+          <EntitySet Name="Teacher" EntityType="StudentProgressModel.Teacher" />
+          <EntitySet Name="Users" EntityType="StudentProgressModel.Users" />
+          <AssociationSet Name="FK_Journal_Group" Association="StudentProgressModel.FK_Journal_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Group" Association="StudentProgressModel.FK_Session_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Student" Association="StudentProgressModel.FK_Journal_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Journal_Teacher" Association="StudentProgressModel.FK_Journal_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="StudentProgressModel.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Student" Association="StudentProgressModel.FK_Session_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Subject" Association="StudentProgressModel.FK_Session_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Session_Teacher" Association="StudentProgressModel.FK_Session_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Session" EntitySet="Session" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Subject" Association="StudentProgressModel.FK_Teacher_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="ID_Group" />
           </Key>
-          <Property Name="ID_Group" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Course" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Specialty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Group" FromRole="Group" ToRole="Journal" />
-          <NavigationProperty Name="Session" Relationship="Self.FK_Session_Group" FromRole="Group" ToRole="Session" />
+          <Property Name="ID_Group" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Course" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Specialty" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Journal" Relationship="StudentProgressModel.FK_Journal_Group" FromRole="Group" ToRole="Journal" />
+          <NavigationProperty Name="Session" Relationship="StudentProgressModel.FK_Session_Group" FromRole="Group" ToRole="Session" />
         </EntityType>
         <EntityType Name="Journal">
           <Key>
             <PropertyRef Name="ID_Journal" />
           </Key>
-          <Property Name="ID_Journal" Type="Int32" Nullable="false" />
+          <Property Name="ID_Journal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Subject" Type="Int32" Nullable="false" />
           <Property Name="ID_Group" Type="Int32" Nullable="false" />
           <Property Name="ID_Student" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Grade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="GraveAVG" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Group" Relationship="Self.FK_Journal_Group" FromRole="Journal" ToRole="Group" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Journal_Student" FromRole="Journal" ToRole="Student" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_Journal_Teacher" FromRole="Journal" ToRole="Teacher" />
+          <Property Name="Grade" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Group" Relationship="StudentProgressModel.FK_Journal_Group" FromRole="Journal" ToRole="Group" />
+          <NavigationProperty Name="Student" Relationship="StudentProgressModel.FK_Journal_Student" FromRole="Journal" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="StudentProgressModel.FK_Journal_Teacher" FromRole="Journal" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="ID_Role" />
           </Key>
           <Property Name="ID_Role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="StudentProgressModel.FK_Users_Role" FromRole="Role" ToRole="Users" />
         </EntityType>
         <EntityType Name="Session">
           <Key>
             <PropertyRef Name="ID_session" />
           </Key>
-          <Property Name="ID_session" Type="Int32" Nullable="false" />
-          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Teacher" Type="Int32" Nullable="false" />
-          <Property Name="Group" Type="Int32" Nullable="false" />
-          <Property Name="Student" Type="Int32" Nullable="false" />
-          <Property Name="TypeOfCertification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Grade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Group1" Relationship="Self.FK_Session_Group" FromRole="Session" ToRole="Group" />
-          <NavigationProperty Name="Student1" Relationship="Self.FK_Session_Student" FromRole="Session" ToRole="Student" />
-          <NavigationProperty Name="Teacher1" Relationship="Self.FK_Session_Teacher" FromRole="Session" ToRole="Teacher" />
+          <Property Name="ID_session" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Subject" Type="Int32" Nullable="false" />
+          <Property Name="ID_Teacher" Type="Int32" Nullable="false" />
+          <Property Name="ID_Group" Type="Int32" Nullable="false" />
+          <Property Name="ID_Student" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfCertification" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DueDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Group" Relationship="StudentProgressModel.FK_Session_Group" FromRole="Session" ToRole="Group" />
+          <NavigationProperty Name="Student" Relationship="StudentProgressModel.FK_Session_Student" FromRole="Session" ToRole="Student" />
+          <NavigationProperty Name="Subject" Relationship="StudentProgressModel.FK_Session_Subject" FromRole="Session" ToRole="Subject" />
+          <NavigationProperty Name="Teacher" Relationship="StudentProgressModel.FK_Session_Teacher" FromRole="Session" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="ID_Student" />
           </Key>
           <Property Name="ID_Student" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="NumberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
-          <NavigationProperty Name="Session" Relationship="Self.FK_Session_Student" FromRole="Student" ToRole="Session" />
+          <Property Name="NumberPhone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Journal" Relationship="StudentProgressModel.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
+          <NavigationProperty Name="Session" Relationship="StudentProgressModel.FK_Session_Student" FromRole="Student" ToRole="Session" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="ID_Subject" />
           </Key>
           <Property Name="ID_Subject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Subject1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Subject" FromRole="Subject" ToRole="Teacher" />
+          <Property Name="Subject1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Session" Relationship="StudentProgressModel.FK_Session_Subject" FromRole="Subject" ToRole="Session" />
+          <NavigationProperty Name="Teacher" Relationship="StudentProgressModel.FK_Teacher_Subject" FromRole="Subject" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -324,28 +388,28 @@
             <PropertyRef Name="ID_Teacher" />
           </Key>
           <Property Name="ID_Teacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_Subject" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Teacher" FromRole="Teacher" ToRole="Journal" />
-          <NavigationProperty Name="Session" Relationship="Self.FK_Session_Teacher" FromRole="Teacher" ToRole="Session" />
-          <NavigationProperty Name="Subject" Relationship="Self.FK_Teacher_Subject" FromRole="Teacher" ToRole="Subject" />
+          <NavigationProperty Name="Journal" Relationship="StudentProgressModel.FK_Journal_Teacher" FromRole="Teacher" ToRole="Journal" />
+          <NavigationProperty Name="Session" Relationship="StudentProgressModel.FK_Session_Teacher" FromRole="Teacher" ToRole="Session" />
+          <NavigationProperty Name="Subject" Relationship="StudentProgressModel.FK_Teacher_Subject" FromRole="Teacher" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="ID_User" />
           </Key>
           <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="ID_Role" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+          <NavigationProperty Name="Role" Relationship="StudentProgressModel.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Journal_Group">
-          <End Role="Group" Type="Self.Group" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <End Type="StudentProgressModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="StudentProgressModel.Journal" Role="Journal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="ID_Group" />
@@ -356,20 +420,20 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Session_Group">
-          <End Role="Group" Type="Self.Group" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <End Type="StudentProgressModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="StudentProgressModel.Session" Role="Session" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="ID_Group" />
             </Principal>
             <Dependent Role="Session">
-              <PropertyRef Name="Group" />
+              <PropertyRef Name="ID_Group" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Journal_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <End Type="StudentProgressModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="StudentProgressModel.Journal" Role="Journal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
               <PropertyRef Name="ID_Student" />
@@ -380,8 +444,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Journal_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+          <End Type="StudentProgressModel.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="StudentProgressModel.Journal" Role="Journal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teacher">
               <PropertyRef Name="ID_Teacher" />
@@ -392,8 +456,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Users_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <End Type="StudentProgressModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="StudentProgressModel.Users" Role="Users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="ID_Role" />
@@ -404,32 +468,44 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Session_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <End Type="StudentProgressModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="StudentProgressModel.Session" Role="Session" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
               <PropertyRef Name="ID_Student" />
             </Principal>
             <Dependent Role="Session">
-              <PropertyRef Name="Student" />
+              <PropertyRef Name="ID_Student" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Session_Subject">
+          <End Type="StudentProgressModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="StudentProgressModel.Session" Role="Session" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID_Subject" />
+            </Principal>
+            <Dependent Role="Session">
+              <PropertyRef Name="ID_Subject" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Session_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
-          <End Role="Session" Type="Self.Session" Multiplicity="*" />
+          <End Type="StudentProgressModel.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="StudentProgressModel.Session" Role="Session" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teacher">
               <PropertyRef Name="ID_Teacher" />
             </Principal>
             <Dependent Role="Session">
-              <PropertyRef Name="Teacher" />
+              <PropertyRef Name="ID_Teacher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Teacher_Subject">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <End Type="StudentProgressModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="StudentProgressModel.Teacher" Role="Teacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subject">
               <PropertyRef Name="ID_Subject" />
@@ -439,49 +515,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="StudentProgressEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Group" EntityType="Self.Group" />
-          <EntitySet Name="Journal" EntityType="Self.Journal" />
-          <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="Session" EntityType="Self.Session" />
-          <EntitySet Name="Student" EntityType="Self.Student" />
-          <EntitySet Name="Subject" EntityType="Self.Subject" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Teacher" EntityType="Self.Teacher" />
-          <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK_Journal_Group" Association="Self.FK_Journal_Group">
-            <End Role="Group" EntitySet="Group" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Session_Group" Association="Self.FK_Session_Group">
-            <End Role="Group" EntitySet="Group" />
-            <End Role="Session" EntitySet="Session" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Journal_Student" Association="Self.FK_Journal_Student">
-            <End Role="Student" EntitySet="Student" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Journal_Teacher" Association="Self.FK_Journal_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="Users" EntitySet="Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Session_Student" Association="Self.FK_Session_Student">
-            <End Role="Student" EntitySet="Student" />
-            <End Role="Session" EntitySet="Session" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Session_Teacher" Association="Self.FK_Session_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Session" EntitySet="Session" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Teacher_Subject" Association="Self.FK_Teacher_Subject">
-            <End Role="Subject" EntitySet="Subject" />
-            <End Role="Teacher" EntitySet="Teacher" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -491,98 +524,98 @@
           <EntitySetMapping Name="Group">
             <EntityTypeMapping TypeName="StudentProgressModel.Group">
               <MappingFragment StoreEntitySet="Group">
-                <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Course" ColumnName="Course" />
                 <ScalarProperty Name="Specialty" ColumnName="Specialty" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Journal">
             <EntityTypeMapping TypeName="StudentProgressModel.Journal">
               <MappingFragment StoreEntitySet="Journal">
-                <ScalarProperty Name="ID_Journal" ColumnName="ID_Journal" />
-                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
-                <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
-                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="GraveAVG" ColumnName="GraveAVG" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+                <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
+                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+                <ScalarProperty Name="ID_Journal" ColumnName="ID_Journal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="StudentProgressModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Session">
             <EntityTypeMapping TypeName="StudentProgressModel.Session">
               <MappingFragment StoreEntitySet="Session">
-                <ScalarProperty Name="ID_session" ColumnName="ID_session" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
-                <ScalarProperty Name="Group" ColumnName="Group" />
-                <ScalarProperty Name="Student" ColumnName="Student" />
-                <ScalarProperty Name="TypeOfCertification" ColumnName="TypeOfCertification" />
-                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="TypeOfCertification" ColumnName="TypeOfCertification" />
+                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+                <ScalarProperty Name="ID_Group" ColumnName="ID_Group" />
+                <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
+                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+                <ScalarProperty Name="ID_session" ColumnName="ID_session" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Student">
             <EntityTypeMapping TypeName="StudentProgressModel.Student">
               <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subject">
             <EntityTypeMapping TypeName="StudentProgressModel.Subject">
               <MappingFragment StoreEntitySet="Subject">
-                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+                <ScalarProperty Name="FullSubject" ColumnName="FullSubject" />
                 <ScalarProperty Name="Subject1" ColumnName="Subject" />
+                <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="StudentProgressModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teacher">
             <EntityTypeMapping TypeName="StudentProgressModel.Teacher">
               <MappingFragment StoreEntitySet="Teacher">
-                <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="Post" ColumnName="Post" />
                 <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="StudentProgressModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

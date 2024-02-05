@@ -17,7 +17,7 @@
             <GroupBox Grid.Column="0" Header="Справочник">
                 <StackPanel>
                     <Image Source="/Resources/Book.png" Width="30" HorizontalAlignment="Left"/>
-                    <Button Content="Предметы" Width="150" x:Name="Items" Click="Items_Click"/>
+                    <Button Content="Преподаватели" Width="150" x:Name="Items" Click="Items_Click"/>
                     <Image Source="/Resources/Group.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Группы" Width="150" x:Name="Group" Click="Group_Click"/>
                     <Image Source="/Resources/Student.png" Width="30" HorizontalAlignment="Left"/>

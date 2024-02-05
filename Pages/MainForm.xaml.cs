@@ -34,7 +34,8 @@ namespace StudentProgress.Pages
 
         private void Group_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.MainFrameForm = FrameForm;
+            FrameForm.Navigate(new GroupPage());
         }
 
         private void Student_Click(object sender, RoutedEventArgs e)

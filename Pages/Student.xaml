@@ -11,6 +11,7 @@
     <Grid>
         <DataGrid x:Name="DgStudent" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="ID студента" Binding="{Binding ID_Student}"/>
                 <DataGridTextColumn Header="ФИО студента" Binding="{Binding FullName}"/>
                 <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth, StringFormat=d}"/>
                 <DataGridTextColumn Header="Номер телефона" Binding="{Binding NumberPhone}"/>

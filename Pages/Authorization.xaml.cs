@@ -42,11 +42,11 @@ namespace StudentProgress.Pages
                     {
                         case 1:
                             MessageBox.Show("Зравствуйте, Преподаватель ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.MainFrame.Navigate(new MainForm());
+                            AppFrame.MainFrame.Navigate(new MainFormTeacher());
                             break;
                         case 2:
                             MessageBox.Show("Зравствуйте, Студент ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.MainFrame.Navigate(new MainForm());
+                            AppFrame.MainFrame.Navigate(new MainFormStudent());
                             break;
                         case 3:
                             MessageBox.Show("Зравствуйте, Директор ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);

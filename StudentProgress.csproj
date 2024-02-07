@@ -90,6 +90,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MainFormStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainFormTeacher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Session.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +166,12 @@
     </Compile>
     <Compile Include="Pages\MainForm.xaml.cs">
       <DependentUpon>MainForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainFormStudent.xaml.cs">
+      <DependentUpon>MainFormStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainFormTeacher.xaml.cs">
+      <DependentUpon>MainFormTeacher.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Session.xaml.cs">
       <DependentUpon>Session.xaml</DependentUpon>

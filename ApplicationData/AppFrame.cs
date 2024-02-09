@@ -11,5 +11,6 @@ namespace StudentProgress.ApplicationData
     {
         public static Frame MainFrame { get; set; }
         public static Frame MainFrameForm { get; set; }
+        public static Frame FormTeacher { get; set; }
     }
 }

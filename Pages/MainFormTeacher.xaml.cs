@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentProgress.ApplicationData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,28 @@ namespace StudentProgress.Pages
         public MainFormTeacher()
         {
             InitializeComponent();
+        }
+
+        private void BtnSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.FormTeacher = FrameFormTeacher;
+            FrameFormTeacher.Navigate(new PageSchedule());
+        }
+
+        private void BtnItems_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.FormTeacher = FrameFormTeacher;
+            FrameFormTeacher.Navigate(new ItemsPage());
+        }
+
+        private void Journal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Student_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

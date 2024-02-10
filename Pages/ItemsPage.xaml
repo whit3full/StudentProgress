@@ -12,7 +12,8 @@
         <DataGrid x:Name="DgItems" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID Предмета" Binding="{Binding ID_Subject}"/>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.Subject1}"/>
+                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject1}" />
+                <DataGridTextColumn Header="Предмет" Binding="{Binding FullSubject}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

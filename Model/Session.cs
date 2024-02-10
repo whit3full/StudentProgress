@@ -7,22 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentProgress.Models
+namespace StudentProgress.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Journal
+    public partial class Session
     {
-        public int ID_Journal { get; set; }
+        public int ID_session { get; set; }
         public int ID_Subject { get; set; }
+        public int ID_Teacher { get; set; }
         public int ID_Group { get; set; }
         public int ID_Student { get; set; }
-        public System.DateTime Date { get; set; }
+        public string TypeOfCertification { get; set; }
+        public string DueDate { get; set; }
         public string Grade { get; set; }
     
         public virtual Group Group { get; set; }
         public virtual Student Student { get; set; }
+        public virtual Subject Subject { get; set; }
         public virtual Teacher Teacher { get; set; }
     }
 }

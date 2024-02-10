@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8613048276c473690e620b8ecef9373" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentProgressModel.Group" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Journal" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Role" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Session" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Student" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Subject" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Teacher" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentProgressModel.Users" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="StudentProgressModel.FK_Journal_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Session_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Journal_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Journal_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Journal_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Users_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Session_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Session_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Session_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentProgressModel.FK_Teacher_Subject" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

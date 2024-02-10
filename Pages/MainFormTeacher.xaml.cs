@@ -40,7 +40,8 @@ namespace StudentProgress.Pages
 
         private void Journal_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.FormTeacher = FrameFormTeacher;
+            FrameFormTeacher.Navigate(new PageJournal());
         }
 
         private void Student_Click(object sender, RoutedEventArgs e)

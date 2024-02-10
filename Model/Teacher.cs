@@ -7,27 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentProgress.Models
+namespace StudentProgress.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Subject
+    public partial class Teacher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Subject()
+        public Teacher()
         {
+            this.Journal = new HashSet<Journal>();
             this.Session = new HashSet<Session>();
-            this.Teacher = new HashSet<Teacher>();
         }
     
+        public int ID_Teacher { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
+        public string Post { get; set; }
         public int ID_Subject { get; set; }
-        public string Subject1 { get; set; }
-        public string FullSubject { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Session> Session { get; set; }
+        public virtual ICollection<Journal> Journal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teacher> Teacher { get; set; }
+        public virtual ICollection<Session> Session { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }

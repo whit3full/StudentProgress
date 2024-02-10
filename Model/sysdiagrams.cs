@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentProgress.Models
+namespace StudentProgress.Model
 {
     using System;
     using System.Collections.Generic;

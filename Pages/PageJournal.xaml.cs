@@ -1,4 +1,4 @@
-﻿using StudentProgress.ApplicationData;
+﻿using StudentProgress.Utils;
 using StudentProgress.Model;
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ namespace StudentProgress.Pages
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             var ObjectForEdit = DgJournal.SelectedItem;
-            AppFrame.SubForm.Navigate(new AddEditJournal((Journal)ObjectForEdit));
+            Manager.SubForm.Navigate(new AddEditJournal((Journal)ObjectForEdit));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -57,7 +57,7 @@ namespace StudentProgress.Pages
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new AddEditJournal(null));
+            Manager.SubForm.Navigate(new AddEditJournal(null));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)

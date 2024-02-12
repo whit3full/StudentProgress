@@ -1,4 +1,5 @@
 ﻿using StudentProgress.Model;
+using StudentProgress.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace StudentProgress.Pages
             {
                 StudentProgressEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
-                ApplicationData.AppFrame.SubForm.GoBack();
+                Manager.SubForm.GoBack();
             }
             catch (Exception ex)
             {

@@ -1,5 +1,5 @@
 ﻿using StudentProgress.Model;
-using StudentProgress.ApplicationData;
+using StudentProgress.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,19 +38,20 @@ namespace StudentProgress.Pages
                 }
                 else
                 {
+                    Manager.AuthUser = UserObj;
                     switch (UserObj.ID_Role)
                     {
                         case 1:
-                            MessageBox.Show("Здравствуйте, Преподаватель ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.MainFrame.Navigate(new MainFormTeacher());
+                            MessageBox.Show("Здравствуйте, Преподаватель ", "Уведомление",      MessageBoxButton.OK, MessageBoxImage.Information);
+                            Manager.MainFrame.Navigate(new MainForm());
                             break;
                         case 2:
                             MessageBox.Show("Здравствуйте, Студент ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.MainFrame.Navigate(new MainFormStudent());
+                            Manager.MainFrame.Navigate(new MainForm());
                             break;
                         case 4:
                             MessageBox.Show("Здравствуйте, Администратор ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.MainFrame.Navigate(new MainForm());
+                            Manager.MainFrame.Navigate(new MainForm());
                             break;
                     }
                 }

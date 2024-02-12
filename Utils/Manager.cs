@@ -1,16 +1,17 @@
-﻿using System;
+﻿using StudentProgress.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace StudentProgress.ApplicationData
+namespace StudentProgress.Utils
 {
-    internal class AppFrame
+    internal class Manager
     {
         public static Frame MainFrame;
         public static Frame SubForm;
-        public static Frame FormTeacher;
+        public static Users AuthUser;
     }
 }

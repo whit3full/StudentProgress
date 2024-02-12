@@ -17,17 +17,17 @@
             <GroupBox Grid.Column="0" Header="Справочник">
                 <StackPanel>
                     <Image Source="/Resources/Book.png" Width="30" HorizontalAlignment="Left"/>
-                    <Button Content="Преподаватели" Width="150" x:Name="Items" Click="Items_Click"/>
+                    <Button Content="Преподаватели" Width="150" Visibility="Collapsed" x:Name="btnTeachers" Click="Items_Click"/>
                     <Image Source="/Resources/Group.png" Width="30" HorizontalAlignment="Left"/>
-                    <Button Content="Группы" Width="150" x:Name="Group" Click="Group_Click"/>
+                    <Button Content="Группы" Width="150" Visibility="Collapsed" x:Name="btnGroup" Click="Group_Click"/>
                     <Image Source="/Resources/Student.png" Width="30" HorizontalAlignment="Left"/>
-                    <Button Content="Студенты" Width="150" x:Name="Student" Click="Student_Click"/>
+                    <Button Content="Студенты" Width="150" Visibility="Collapsed" x:Name="btnStudent" Click="Student_Click"/>
                 </StackPanel>
             </GroupBox>
             <GroupBox Grid.Column="0" Header="Ведомость">
                 <StackPanel>
-                    <Button Content="Сессия" Width="150" x:Name="Session" Click="Session_Click"/>
-                    <Button Content="Журнал" Width="150" x:Name="Journal" Click="Journal_Click"/>
+                    <Button Content="Сессия" Width="150" Visibility="Collapsed" x:Name="btnSession" Click="Session_Click"/>
+                    <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournal" Click="Journal_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

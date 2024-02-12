@@ -1,4 +1,5 @@
-﻿using StudentProgress.ApplicationData;
+﻿using StudentProgress.Model;
+using StudentProgress.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,41 +17,51 @@ using System.Windows.Shapes;
 
 namespace StudentProgress.Pages
 {
-    /// Сделать форму которая, будет с дроп меню, где можно выбрать студента, предмет и выставить ему оценку.
-    /// <summary>
-    /// Логика взаимодействия для MainForm.xaml
-    /// </summary>
     public partial class MainForm : Page
     {
+
         public MainForm()
         {
             InitializeComponent();
-            AppFrame.SubForm = SubForm;
+            Manager.SubForm = SubForm;
+            if(Manager.AuthUser.ID_Role == 1)
+            {
+                btnStudent.Visibility = Visibility.Visible;
+                btnGroup.Visibility = Visibility.Visible;
+            }
+            else  if (Manager.AuthUser.ID_Role == 2)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         private void Items_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new TeacherPage());
+            Manager.SubForm.Navigate(new TeacherPage());
         }
 
         private void Group_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new GroupPage());
+            Manager.SubForm.Navigate(new GroupPage());
         }
 
         private void Student_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new Student());
+            Manager.SubForm.Navigate(new Student());
         }
 
         private void Session_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new Session());
+            Manager.SubForm.Navigate(new Session());
         }
 
         private void Journal_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new PageJournal());
+            Manager.SubForm.Navigate(new PageJournal());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using StudentProgress.ApplicationData;
+﻿using StudentProgress.Utils;
 using StudentProgress.Pages;
 using System;
 using System.Collections.Generic;
@@ -25,13 +25,13 @@ namespace StudentProgress
         public MainWindow()
         {
             InitializeComponent();
-            AppFrame.MainFrame = FrameMain;
+            Manager.MainFrame = FrameMain;
             FrameMain.Navigate(new Authorization());
         }
 
         private void ButBack_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.MainFrame.GoBack();
+            Manager.MainFrame.GoBack();
         }
 
         private void FrameMain_ContentRendered(object sender, EventArgs e)

@@ -15,9 +15,16 @@ namespace StudentProgress.Model
     
     public partial class StudentProgressEntities : DbContext
     {
+        public static StudentProgressEntities _context;
         public StudentProgressEntities()
             : base("name=StudentProgressEntities")
         {
+        }
+        public static StudentProgressEntities GetContext()
+        {
+            if (_context == null)
+                    _context = new StudentProgressEntities();
+            return _context;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

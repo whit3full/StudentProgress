@@ -1,4 +1,5 @@
-﻿using StudentProgress.Models;
+﻿using StudentProgress.ApplicationData;
+using StudentProgress.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,46 @@ namespace StudentProgress.Pages
         {
             InitializeComponent();
             DgJournal.ItemsSource = StudentProgressEntities.GetContext().Journal.ToList();
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.SubForm.Navigate(new AddEditJournal((sender as Button).DataContext as Journal));
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var ObjectForDelete = DgJournal.SelectedItems.Cast<Journal>().ToList();
+            if(MessageBox.Show($"Вы действительно хотите удалить {ObjectForDelete.Count()} элемент", 
+                "Внимание",MessageBoxButton.YesNo, MessageBoxImage.Question)== MessageBoxResult.Yes)
+            {
+                try
+                {
+                    StudentProgressEntities.GetContext().Journal.RemoveRange(ObjectForDelete);
+                    StudentProgressEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+
+                    DgJournal.ItemsSource = StudentProgressEntities.GetContext().Journal.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            }
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.SubForm.Navigate(new AddEditJournal(null));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                StudentProgressEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DgJournal.ItemsSource = StudentProgressEntities.GetContext().Journal.ToList();
+            }
         }
     }
 }

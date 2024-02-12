@@ -6,17 +6,29 @@
       xmlns:local="clr-namespace:StudentProgress.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageJournal">
+      Title="PageJournal" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
         <DataGrid x:Name="DgJournal" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.FullSubject}"/>
+                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"/>
                 <DataGridTextColumn Header="Курс учащегося" Binding="{Binding Group.Course}" />
                 <DataGridTextColumn Header="ФИО Студента" Binding="{Binding Student.FullName}"/>
-                <DataGridTextColumn Header="Дата выставления оценки" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Дата выставления оценки" Binding="{Binding Date, StringFormat=d}"/>
                 <DataGridTextColumn Header="Оценка учащегося" Binding="{Binding Grade}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <WrapPanel Grid.Row="1">
+            <Button x:Name="BtnEdit" HorizontalAlignment="Left" 
+                Content="Редактировать" Click="BtnEdit_Click"/>
+            <Button x:Name="BtnAdd" 
+                    Content="Добавить" Click="BtnAdd_Click"/>
+        </WrapPanel>
+        <Button x:Name="BtnDelete" HorizontalAlignment="Right" 
+                Content="Удалить" Grid.Row="1" Click="BtnDelete_Click"/>
     </Grid>
 </Page>

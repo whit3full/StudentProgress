@@ -25,35 +25,32 @@ namespace StudentProgress.Pages
         public MainForm()
         {
             InitializeComponent();
+            AppFrame.SubForm = SubForm;
         }
 
         private void Items_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.MainFrameForm = FrameForm;
-            FrameForm.Navigate(new TeacherPage());
+            AppFrame.SubForm.Navigate(new TeacherPage());
         }
 
         private void Group_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.MainFrameForm = FrameForm;
-            FrameForm.Navigate(new GroupPage());
+            AppFrame.SubForm.Navigate(new GroupPage());
         }
 
         private void Student_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.MainFrameForm = FrameForm;
-            FrameForm.Navigate(new Student());
+            AppFrame.SubForm.Navigate(new Student());
         }
 
         private void Session_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.MainFrameForm = FrameForm;
-            FrameForm.Navigate(new Session());
+            AppFrame.SubForm.Navigate(new Session());
         }
 
         private void Journal_Click(object sender, RoutedEventArgs e)
         {
-
+            AppFrame.SubForm.Navigate(new PageJournal());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using StudentProgress.Models;
+﻿using StudentProgress.Model;
 using StudentProgress.ApplicationData;
 using System;
 using System.Collections.Generic;
@@ -41,19 +41,15 @@ namespace StudentProgress.Pages
                     switch (UserObj.ID_Role)
                     {
                         case 1:
-                            MessageBox.Show("Зравствуйте, Преподаватель ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Здравствуйте, Преподаватель ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             AppFrame.MainFrame.Navigate(new MainFormTeacher());
                             break;
                         case 2:
-                            MessageBox.Show("Зравствуйте, Студент ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Здравствуйте, Студент ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             AppFrame.MainFrame.Navigate(new MainFormStudent());
                             break;
-                        case 3:
-                            MessageBox.Show("Зравствуйте, Директор ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.MainFrame.Navigate(new MainForm());
-                            break;
                         case 4:
-                            MessageBox.Show("Зравствуйте, Администратор ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Здравствуйте, Администратор ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             AppFrame.MainFrame.Navigate(new MainForm());
                             break;
                     }

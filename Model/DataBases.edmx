@@ -61,7 +61,7 @@
             <PropertyRef Name="ID_Subject" />
           </Key>
           <Property Name="ID_Subject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FullSubject" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -339,7 +339,7 @@
             <PropertyRef Name="ID_Subject" />
           </Key>
           <Property Name="ID_Subject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Subject1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FullSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Subject" FromRole="Subject" ToRole="Journal" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Subject" FromRole="Subject" ToRole="Session" />
@@ -616,7 +616,7 @@
             <EntityTypeMapping TypeName="StudentProgressModel.Subject">
               <MappingFragment StoreEntitySet="Subject">
                 <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
-                <ScalarProperty Name="Subject1" ColumnName="Subject" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
                 <ScalarProperty Name="FullSubject" ColumnName="FullSubject" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -23,7 +23,7 @@ namespace StudentProgress.Model
         }
     
         public int ID_Subject { get; set; }
-        public string Subject1 { get; set; }
+        public string SubjectName { get; set; }
         public string FullSubject { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

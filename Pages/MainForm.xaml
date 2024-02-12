@@ -31,6 +31,6 @@
                 </StackPanel>
             </GroupBox>
         </StackPanel>
-        <Frame x:Name="FrameForm" Grid.Column="1"/>
+        <Frame x:Name="SubForm" Grid.Column="1"/>
     </Grid>
 </Page>

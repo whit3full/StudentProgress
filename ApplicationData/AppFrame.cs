@@ -9,8 +9,8 @@ namespace StudentProgress.ApplicationData
 {
     internal class AppFrame
     {
-        public static Frame MainFrame { get; set; }
-        public static Frame MainFrameForm { get; set; }
-        public static Frame FormTeacher { get; set; }
+        public static Frame MainFrame;
+        public static Frame SubForm;
+        public static Frame FormTeacher;
     }
 }

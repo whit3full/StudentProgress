@@ -24,6 +24,13 @@ namespace StudentProgress.Model
         public int ID_Teacher { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return Surname + " " + Name + " " + Patronymic;
+            }
+        }
         public string Patronymic { get; set; }
         public string Post { get; set; }
         public int ID_Subject { get; set; }

@@ -24,6 +24,13 @@ namespace StudentProgress.Model
         public int ID_Student { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return Surname + " " + Name + " " + Patronymic;
+            }
+        }
         public string Patronymic { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public string NumberPhone { get; set; }

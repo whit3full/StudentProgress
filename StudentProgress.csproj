@@ -78,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEditJournal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Authorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +174,9 @@
     <Compile Include="Model\Users.cs">
       <DependentUpon>DataBases.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddEditJournal.xaml.cs">
+      <DependentUpon>AddEditJournal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
@@ -256,7 +263,6 @@
   <ItemGroup>
     <Resource Include="Resources\Schedule.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Model\DataBases.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

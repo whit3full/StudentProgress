@@ -30,7 +30,8 @@ namespace StudentProgress.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            AppFrame.SubForm.Navigate(new AddEditJournal((sender as Button).DataContext as Journal));
+            var ObjectForEdit = DgJournal.SelectedItem;
+            AppFrame.SubForm.Navigate(new AddEditJournal((Journal)ObjectForEdit));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)

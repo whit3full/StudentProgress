@@ -9,28 +9,28 @@
       Title="AddEditJournal">
 
     <Grid Background="White">
-        <StackPanel>
-            <WrapPanel Margin="5">
-                <Label Content="Предмет: " Style="{StaticResource Lab}"/>
-                <ComboBox Width="160" x:Name="cmbSubject" SelectedItem="{Binding Subject}" DisplayMemberPath="SubjectName"/>
-            </WrapPanel>
-            <WrapPanel Margin="5">
-                <Label Content="Курс учащегося: " Style="{StaticResource Lab}"/>
-                <TextBox Text="{Binding Group.Course}" x:Name="CourseBox" Style="{StaticResource TxB}"/>
-            </WrapPanel>
-            <WrapPanel Margin="5">
-                <Label Content="ФИО студента: " Style="{StaticResource Lab}"/>
-                <TextBox Text="{Binding Student.Name}" x:Name="FioStudent" Style="{StaticResource TxB}"/>
-            </WrapPanel>
-            <WrapPanel Margin="5">
-                <Label Content="Дата выставления оценки " Style="{StaticResource Lab}"/>
-                <TextBox Text="{Binding Date}" x:Name="DateBox" Width="190" Height="30"/>
-            </WrapPanel>
-            <WrapPanel Margin="5">
-                <Label Content="Оценка учащегося: " Style="{StaticResource Lab}"/>
-                <TextBox Text="{Binding Grade}" x:Name="GradeBox" Style="{StaticResource TxB}"/>
-            </WrapPanel>
-            <Button x:Name="Save" Content="Сохранить" VerticalAlignment="Bottom" Click="Save_Click"/>
+        <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                <TextBlock Text="Предмет:"/>
+                <TextBox x:Name="txtBSubjectName" Text="{Binding Subject.SubjectName}" Width="250" Margin="10 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
+                <TextBlock Text="Группа:"/>
+                <ComboBox x:Name="cmbGroup" SelectedItem="{Binding Group}" DisplayMemberPath="Course" Width="250" Margin="10 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
+                <TextBlock Text="Студент:"/>
+                <ComboBox x:Name="cmbStudent" SelectedItem="{Binding Student}" DisplayMemberPath="FullName" Width="250" Margin="10 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
+                <TextBlock Text="Дата выставления оценки:"/>
+                <DatePicker x:Name="clndDateOfScore" SelectedDate="{Binding Date}" Margin="10 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
+                <TextBlock Text="Оценка:"/>
+                <TextBox x:Name="txtBGrade" Text="{Binding Grade}" Width="250" Margin="10 0 0 0"/>
+            </StackPanel>
+            <Button x:Name="btnSave" Content="Сохранить" Click="Save_Click"/>
         </StackPanel>
     </Grid>
 </Page>

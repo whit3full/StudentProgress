@@ -11,7 +11,7 @@
     <Grid>
         <DataGrid x:Name="DgSession" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.Subject1}"  />
+                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"  />
                 <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.FullName}"/>
                 <DataGridTextColumn Header="Группа" Binding="{Binding Group.Name}"/>
                 <DataGridTextColumn Header="Студент" Binding="{Binding Student.FullName}"/>

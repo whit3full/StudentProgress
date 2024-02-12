@@ -30,7 +30,8 @@ namespace StudentProgress.Pages
                 _currentJournal = selectedJournal;
 
             DataContext = _currentJournal;
-            cmbSubject.ItemsSource = StudentProgressEntities.GetContext().Subject.ToList();
+            cmbGroup.ItemsSource = StudentProgressEntities.GetContext().Group.ToList();
+            cmbStudent.ItemsSource = StudentProgressEntities.GetContext().Student.ToList();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -42,10 +43,10 @@ namespace StudentProgress.Pages
                 errors = errors.AppendLine("Укажите курс");
             if (string.IsNullOrWhiteSpace(_currentJournal.Student.FullName))
                 errors = errors.AppendLine("Укажите ФИО студента");
-            if (string.IsNullOrWhiteSpace((_currentJournal.Date).ToString()))
-                errors = errors.AppendLine("Укажите курс");
-            if (_currentJournal.Grade == null)
-                errors.AppendLine("Укажите оценку");
+            if (clndDateOfScore.SelectedDate == null)
+                errors = errors.AppendLine("Укажите дату");
+            if (string.IsNullOrWhiteSpace(_currentJournal.Grade))
+                errors = errors.AppendLine("Укажите оценку");
 
             if (_currentJournal.ID_Journal == 0)
                 StudentProgressEntities.GetContext().Journal.Add(_currentJournal);
@@ -53,6 +54,7 @@ namespace StudentProgress.Pages
             {
                 StudentProgressEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
+                ApplicationData.AppFrame.SubForm.GoBack();
             }
             catch (Exception ex)
             {

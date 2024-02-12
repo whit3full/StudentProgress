@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="ID Преподавателя" Binding="{Binding ID_Teacher}"/>
                 <DataGridTextColumn Header="ФИО Преподавателя" Binding="{Binding FullName}"/>
                 <DataGridTextColumn Header="Должность" Binding="{Binding Post}"/>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.Subject1}"  />
+                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"  />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

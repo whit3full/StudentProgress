@@ -73,6 +73,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Pages\GuestPage.xaml.cs">
+      <DependentUpon>GuestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageStudentJournal.xaml.cs">
       <DependentUpon>PageStudentJournal.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\GroupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GuestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,10 +121,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Session.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Statement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,9 +200,6 @@
     <Compile Include="Pages\Session.xaml.cs">
       <DependentUpon>Session.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Statement.xaml.cs">
-      <DependentUpon>Statement.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Student.xaml.cs">
       <DependentUpon>Student.xaml</DependentUpon>
     </Compile>
@@ -265,6 +265,7 @@
       <DependentUpon>DataBases.edmx</DependentUpon>
       <LastGenOutput>DataBases.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\StudentPhoto.jpg" />
     <Resource Include="Resources\APT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

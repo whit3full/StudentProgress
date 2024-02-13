@@ -30,7 +30,7 @@
                 <StackPanel>
                     <Button Content="Сессия" Width="150" Visibility="Collapsed" x:Name="btnSession" Click="Session_Click"/>
                     <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournal" Click="Journal_Click"/>
-                    <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournalStudent" Click="btnJournalStudent_Click"/>
+                    <Button Content="Журнал студента" Width="150" Visibility="Collapsed" x:Name="btnJournalStudent" Click="btnJournalStudent_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

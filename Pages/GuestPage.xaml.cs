@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace StudentProgress.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Statement.xaml
+    /// Логика взаимодействия для GuestPage.xaml
     /// </summary>
-    public partial class Statement : Page
+    public partial class GuestPage : Page
     {
-        public Statement()
+        public GuestPage()
         {
             InitializeComponent();
         }

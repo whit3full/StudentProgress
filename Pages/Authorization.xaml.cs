@@ -64,7 +64,7 @@ namespace StudentProgress.Pages
 
         private void BtnGuest_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new GuestPage());
         }
     }
 }

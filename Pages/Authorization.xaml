@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         
         <Image Source="/Resources/фон.jpg" Grid.ColumnSpan="3" Margin="-107,-257,-472,-303" Grid.RowSpan="4"/>
-        <Image Source="/Resources/апт.jpg" HorizontalAlignment="Left"/>
+        <Image Source="/Resources/APT.png" HorizontalAlignment="Left"/>
         <Label Content="Войдите в систему" Grid.ColumnSpan="3"
                HorizontalAlignment="Center" FontSize="40" Style="{StaticResource Lab}"/>
         <Label Content="Введите логин: " Grid.Row="1" Style="{StaticResource Lab}" 

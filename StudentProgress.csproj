@@ -222,6 +222,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EntityDeploy Include="Model\DataBases.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -238,9 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\апт.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\фон.jpg" />
@@ -267,6 +265,7 @@
       <DependentUpon>DataBases.edmx</DependentUpon>
       <LastGenOutput>DataBases.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\APT.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

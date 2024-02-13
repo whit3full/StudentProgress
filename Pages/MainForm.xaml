@@ -18,6 +18,8 @@
                 <StackPanel>
                     <Image Source="/Resources/Book.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Преподаватели" Width="150" Visibility="Collapsed" x:Name="btnTeachers" Click="Items_Click"/>
+                    <Button Content="Расписание" Width="150" Visibility="Collapsed" x:Name="btnSchedule" Click="btnSchedule_Click"/>
+                    <Button Content="Предмет" Width="150" Visibility="Collapsed" x:Name="btnSubject" Click="btnSubject_Click"/>
                     <Image Source="/Resources/Group.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Группы" Width="150" Visibility="Collapsed" x:Name="btnGroup" Click="Group_Click"/>
                     <Image Source="/Resources/Student.png" Width="30" HorizontalAlignment="Left"/>
@@ -28,6 +30,7 @@
                 <StackPanel>
                     <Button Content="Сессия" Width="150" Visibility="Collapsed" x:Name="btnSession" Click="Session_Click"/>
                     <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournal" Click="Journal_Click"/>
+                    <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournalStudent" Click="btnJournalStudent_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

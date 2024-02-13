@@ -28,14 +28,22 @@ namespace StudentProgress.Pages
             {
                 btnStudent.Visibility = Visibility.Visible;
                 btnGroup.Visibility = Visibility.Visible;
+                btnJournal.Visibility = Visibility.Visible;
+                btnSession.Visibility = Visibility.Visible;
+
             }
             else  if (Manager.AuthUser.ID_Role == 2)
             {
-
+                btnSchedule.Visibility = Visibility.Visible;
+                btnJournalStudent.Visibility= Visibility.Visible;
             }
-            else
+            else  
             {
-
+                btnStudent.Visibility = Visibility.Visible;
+                btnGroup.Visibility = Visibility.Visible;
+                btnSchedule.Visibility = Visibility.Visible;
+                btnJournal.Visibility = Visibility.Visible;
+                btnSession.Visibility = Visibility.Visible;
             }
         }
 
@@ -62,6 +70,21 @@ namespace StudentProgress.Pages
         private void Journal_Click(object sender, RoutedEventArgs e)
         {
             Manager.SubForm.Navigate(new PageJournal());
+        }
+
+        private void btnSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.SubForm.Navigate(new PageSchedule());
+        }
+
+        private void btnSubject_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.SubForm.Navigate(new ItemsPage());
+        }
+
+        private void btnJournalStudent_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.SubForm.Navigate(new PageStudentJournal());
         }
     }
 }

@@ -11,7 +11,7 @@
     <Grid>
         <Grid.Background>
             <RadialGradientBrush>
-                <GradientStop Color="#FF668C8B" Offset="1"/>
+                <GradientStop Color="#FF5FD1DD" Offset="1"/>
                 <GradientStop Color="#FF5FFFFB"/>
             </RadialGradientBrush>
         </Grid.Background>
@@ -22,13 +22,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Группа:" FontSize="17"/>
-                <ComboBox x:Name="cmbGroup" SelectedItem="{Binding Group}" DisplayMemberPath="Course" Width="250" Margin="10 0 0 0"
-                          Style="{StaticResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}"/>
+                <ComboBox x:Name="cmbGroup" SelectedItem="{Binding Group}" DisplayMemberPath="Course" Width="250" Margin="10 0 0 0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Студент:" FontSize="17"/>
-                <ComboBox x:Name="cmbStudent" SelectedItem="{Binding Student}" DisplayMemberPath="FullName" Width="250" Margin="10 0 0 0"
-                          Style="{StaticResource theComboBox}" ItemContainerStyle="{DynamicResource theComboBoxItem}"/>
+                <ComboBox x:Name="cmbStudent" SelectedItem="{Binding Student}" DisplayMemberPath="FullName" Width="250" Margin="10 0 0 0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Дата выставления оценки:" FontSize="17"/>

@@ -36,6 +36,18 @@ namespace StudentProgress.Pages
             {
                 btnSchedule.Visibility = Visibility.Visible;
                 btnJournalStudent.Visibility= Visibility.Visible;
+
+            }
+            else if (Manager.AuthUser.ID_Role == 4)
+            {
+                btnSchedule.Visibility = Visibility.Visible;
+                btnJournalStudent.Visibility = Visibility.Visible;
+                btnStudent.Visibility = Visibility.Visible;
+                btnGroup.Visibility = Visibility.Visible;
+                btnJournal.Visibility = Visibility.Visible;
+                btnSession.Visibility = Visibility.Visible;
+                btnSubject.Visibility = Visibility.Visible;
+                btnTeachers.Visibility = Visibility.Visible;
             }
             else  
             {

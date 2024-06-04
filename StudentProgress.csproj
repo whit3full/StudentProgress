@@ -73,6 +73,48 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\DataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Group.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Journal.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Role.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Session.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Student.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Subject.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Teacher.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Users.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GuestPage.xaml.cs">
       <DependentUpon>GuestPage.xaml</DependentUpon>
     </Compile>
@@ -134,48 +176,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DataBases.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBases.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBases.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DataBases.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBases.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Group.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Journal.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Role.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Session.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Student.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Subject.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Teacher.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Users.cs">
-      <DependentUpon>DataBases.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AddEditJournal.xaml.cs">
       <DependentUpon>AddEditJournal.xaml</DependentUpon>
     </Compile>
@@ -224,12 +224,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\DataBases.edmx">
+    <EntityDeploy Include="Model\DataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataBases.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\DataBases.edmx.diagram">
-      <DependentUpon>DataBases.edmx</DependentUpon>
+    <None Include="Model\DataBase.edmx.diagram">
+      <DependentUpon>DataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -255,18 +255,21 @@
     <Resource Include="Resources\Schedule.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\DataBases.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBases.edmx</DependentUpon>
-      <LastGenOutput>DataBases.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\DataBases.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBases.edmx</DependentUpon>
-      <LastGenOutput>DataBases.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\StudentPhoto.jpg" />
     <Resource Include="Resources\APT.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\DataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\DataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,7 +20,7 @@ namespace StudentProgress.Model
         public int ID_Group { get; set; }
         public int ID_Student { get; set; }
         public string TypeOfCertification { get; set; }
-        public string DueDate { get; set; }
+        public System.DateTime DueDate { get; set; }
         public string Grade { get; set; }
     
         public virtual Group Group { get; set; }

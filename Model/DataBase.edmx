@@ -12,7 +12,7 @@
           <Property Name="ID_Group" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Course" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Specialty" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Specialty" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Journal">
           <Key>
@@ -42,7 +42,7 @@
           <Property Name="ID_Group" Type="int" Nullable="false" />
           <Property Name="ID_Student" Type="int" Nullable="false" />
           <Property Name="TypeOfCertification" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="DueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DueDate" Type="date" Nullable="false" />
           <Property Name="Grade" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Student">
@@ -50,7 +50,7 @@
             <PropertyRef Name="ID_Student" />
           </Key>
           <Property Name="ID_Student" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
@@ -62,7 +62,7 @@
           </Key>
           <Property Name="ID_Subject" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SubjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="FullSubject" Type="nvarchar(max)" />
+          <Property Name="FullSubject" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -79,7 +79,7 @@
             <PropertyRef Name="ID_Teacher" />
           </Key>
           <Property Name="ID_Teacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Post" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -90,8 +90,8 @@
             <PropertyRef Name="ID_User" />
           </Key>
           <Property Name="ID_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_Role" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Journal_Group">
@@ -124,18 +124,6 @@
           <ReferentialConstraint>
             <Principal Role="Subject">
               <PropertyRef Name="ID_Subject" />
-            </Principal>
-            <Dependent Role="Journal">
-              <PropertyRef Name="ID_Subject" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Journal_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="ID_Teacher" />
             </Principal>
             <Dependent Role="Journal">
               <PropertyRef Name="ID_Subject" />
@@ -236,10 +224,6 @@
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Journal" EntitySet="Journal" />
           </AssociationSet>
-          <AssociationSet Name="FK_Journal_Teacher" Association="Self.FK_Journal_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
           <AssociationSet Name="FK_Session_Group" Association="Self.FK_Session_Group">
             <End Role="Group" EntitySet="Group" />
             <End Role="Session" EntitySet="Session" />
@@ -277,7 +261,7 @@
           <Property Name="ID_Group" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Course" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Specialty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Specialty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Group" FromRole="Group" ToRole="Journal" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Group" FromRole="Group" ToRole="Session" />
         </EntityType>
@@ -294,7 +278,6 @@
           <NavigationProperty Name="Group" Relationship="Self.FK_Journal_Group" FromRole="Journal" ToRole="Group" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Journal_Student" FromRole="Journal" ToRole="Student" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Journal_Subject" FromRole="Journal" ToRole="Subject" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_Journal_Teacher" FromRole="Journal" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -314,7 +297,7 @@
           <Property Name="ID_Group" Type="Int32" Nullable="false" />
           <Property Name="ID_Student" Type="Int32" Nullable="false" />
           <Property Name="TypeOfCertification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="DueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DueDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Grade" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Group" Relationship="Self.FK_Session_Group" FromRole="Session" ToRole="Group" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Session_Student" FromRole="Session" ToRole="Student" />
@@ -326,7 +309,7 @@
             <PropertyRef Name="ID_Student" />
           </Key>
           <Property Name="ID_Student" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
@@ -340,7 +323,7 @@
           </Key>
           <Property Name="ID_Subject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="FullSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Subject" FromRole="Subject" ToRole="Journal" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Subject" FromRole="Subject" ToRole="Session" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Subject" FromRole="Subject" ToRole="Teacher" />
@@ -360,12 +343,11 @@
             <PropertyRef Name="ID_Teacher" />
           </Key>
           <Property Name="ID_Teacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_Subject" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Journal" Relationship="Self.FK_Journal_Teacher" FromRole="Teacher" ToRole="Journal" />
           <NavigationProperty Name="Session" Relationship="Self.FK_Session_Teacher" FromRole="Teacher" ToRole="Session" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Teacher_Subject" FromRole="Teacher" ToRole="Subject" />
         </EntityType>
@@ -374,8 +356,8 @@
             <PropertyRef Name="ID_User" />
           </Key>
           <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_Role" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
@@ -421,18 +403,6 @@
           <ReferentialConstraint>
             <Principal Role="Subject">
               <PropertyRef Name="ID_Subject" />
-            </Principal>
-            <Dependent Role="Journal">
-              <PropertyRef Name="ID_Subject" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Journal_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
-          <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="ID_Teacher" />
             </Principal>
             <Dependent Role="Journal">
               <PropertyRef Name="ID_Subject" />
@@ -523,10 +493,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Journal_Subject" Association="Self.FK_Journal_Subject">
             <End Role="Subject" EntitySet="Subject" />
-            <End Role="Journal" EntitySet="Journal" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Journal_Teacher" Association="Self.FK_Journal_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
             <End Role="Journal" EntitySet="Journal" />
           </AssociationSet>
           <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">

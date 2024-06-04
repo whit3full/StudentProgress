@@ -17,7 +17,6 @@ namespace StudentProgress.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Teacher()
         {
-            this.Journal = new HashSet<Journal>();
             this.Session = new HashSet<Session>();
         }
     
@@ -35,8 +34,6 @@ namespace StudentProgress.Model
         public string Post { get; set; }
         public int ID_Subject { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Journal> Journal { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Session> Session { get; set; }
         public virtual Subject Subject { get; set; }

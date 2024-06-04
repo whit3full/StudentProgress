@@ -41,15 +41,15 @@ namespace StudentProgress.Pages
                     Manager.AuthUser = UserObj;
                     switch (UserObj.ID_Role)
                     {
-                        case 1:
+                        case 2:
                             MessageBox.Show("Здравствуйте, Преподаватель ", "Уведомление",      MessageBoxButton.OK, MessageBoxImage.Information);
                             Manager.MainFrame.Navigate(new MainForm());
                             break;
-                        case 2:
+                        case 3:
                             MessageBox.Show("Здравствуйте, Студент ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             Manager.MainFrame.Navigate(new MainForm());
                             break;
-                        case 4:
+                        case 1:
                             MessageBox.Show("Здравствуйте, Администратор ", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             Manager.MainFrame.Navigate(new MainForm());
                             break;

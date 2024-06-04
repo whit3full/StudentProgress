@@ -24,7 +24,7 @@ namespace StudentProgress.Pages
         {
             InitializeComponent();
             Manager.SubForm = SubForm;
-            if(Manager.AuthUser.ID_Role == 1)
+            if(Manager.AuthUser.ID_Role == 2)
             {
                 btnStudent.Visibility = Visibility.Visible;
                 btnGroup.Visibility = Visibility.Visible;
@@ -32,13 +32,13 @@ namespace StudentProgress.Pages
                 btnSession.Visibility = Visibility.Visible;
 
             }
-            else  if (Manager.AuthUser.ID_Role == 2)
+            else  if (Manager.AuthUser.ID_Role == 3)
             {
                 btnSchedule.Visibility = Visibility.Visible;
                 btnJournalStudent.Visibility= Visibility.Visible;
 
             }
-            else if (Manager.AuthUser.ID_Role == 4)
+            else if (Manager.AuthUser.ID_Role == 1)
             {
                 btnSchedule.Visibility = Visibility.Visible;
                 btnJournalStudent.Visibility = Visibility.Visible;

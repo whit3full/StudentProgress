@@ -1,0 +1,6 @@
+C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\obj\Debug\CheckAuth.csproj.AssemblyReference.cache
+C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\obj\Debug\CheckAuth.csproj.CoreCompileInputs.cache
+C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

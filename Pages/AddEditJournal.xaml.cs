@@ -33,33 +33,57 @@ namespace StudentProgress.Pages
             DataContext = _currentJournal;
             cmbGroup.ItemsSource = StudentProgressEntities.GetContext().Group.ToList();
             cmbStudent.ItemsSource = StudentProgressEntities.GetContext().Student.ToList();
+            cmbSubject.ItemsSource = StudentProgressEntities.GetContext().Subject.ToList();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
-            if (_currentJournal.ID_Subject <= 0)
+            if (_currentJournal.Subject == null)
                 errors.AppendLine("Укажите предмет");
-            if (string.IsNullOrWhiteSpace(_currentJournal.Group.Course))
+            if (_currentJournal.Group == null)
                 errors = errors.AppendLine("Укажите курс");
-            if (string.IsNullOrWhiteSpace(_currentJournal.Student.FullName))
+            if (_currentJournal.Student == null)
                 errors = errors.AppendLine("Укажите ФИО студента");
             if (clndDateOfScore.SelectedDate == null)
                 errors = errors.AppendLine("Укажите дату");
-            if (string.IsNullOrWhiteSpace(_currentJournal.Grade))
+            if (_currentJournal.Grade == null)
                 errors = errors.AppendLine("Укажите оценку");
 
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (_currentJournal.ID_Journal == 0)
-                StudentProgressEntities.GetContext().Journal.Add(_currentJournal);
+                try
+                {
+                    StudentProgressEntities.GetContext().Journal.Add(_currentJournal);
+                }
+                catch(Exception  ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             try
             {
                 StudentProgressEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
-                Manager.SubForm.GoBack();
+                Manager.MainFrame.GoBack();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void clndDateOfScore_Loaded(object sender, RoutedEventArgs e)
+        {
+            DatePicker datePicker = sender as DatePicker;
+
+            if (datePicker != null && (datePicker.SelectedDate == null || datePicker.SelectedDate == DateTime.MinValue))
+            {
+                datePicker.SelectedDate = DateTime.Today;
             }
         }
     }

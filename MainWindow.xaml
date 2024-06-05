@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentProgress"
         mc:Ignorable="d"
-        Title="Учет успеваемости" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/Resources/APT.png">
+        Title="Учет успеваемости" Height="600" Width="970" MinHeight="600" MinWidth="970" Icon="/Resources/APT.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

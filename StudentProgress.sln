@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProgress", "StudentProgress.csproj", "{F6BF076F-169C-4D45-8FB7-35E807AE580D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckAuth", "C:\Users\white\source\repos\StudentProgress.git\ClassLibrary1\CheckAuth.csproj", "{02BBB6E3-ED06-40CF-87A5-81B6231430D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckAuthTests", "C:\Users\white\source\repos\StudentProgress.git\CheckAuthTests\CheckAuthTests.csproj", "{CEB674AC-5008-49EE-B5A8-C2F884890094}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F6BF076F-169C-4D45-8FB7-35E807AE580D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6BF076F-169C-4D45-8FB7-35E807AE580D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6BF076F-169C-4D45-8FB7-35E807AE580D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02BBB6E3-ED06-40CF-87A5-81B6231430D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02BBB6E3-ED06-40CF-87A5-81B6231430D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02BBB6E3-ED06-40CF-87A5-81B6231430D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02BBB6E3-ED06-40CF-87A5-81B6231430D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB674AC-5008-49EE-B5A8-C2F884890094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB674AC-5008-49EE-B5A8-C2F884890094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB674AC-5008-49EE-B5A8-C2F884890094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB674AC-5008-49EE-B5A8-C2F884890094}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

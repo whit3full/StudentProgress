@@ -9,9 +9,6 @@
       Title="Authorization">
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Resources/фон.jpg"/>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -23,10 +20,13 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Ellipse Width="80" Height="80" HorizontalAlignment="Left" Stroke="Black" >
+        <Ellipse Width="80" Height="80" Margin="10 0 0 0" HorizontalAlignment="Left" Stroke="Black" >
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Resources/APT.png" Stretch="Fill"></ImageBrush>
             </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse>
+            
         </Ellipse>
         <Label Content="Войдите в систему" Grid.ColumnSpan="3"
                HorizontalAlignment="Center" FontSize="40" Style="{StaticResource Lab}"/>

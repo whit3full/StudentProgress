@@ -16,13 +16,13 @@
         <Grid>
             <Grid.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FF5FD1DD" Offset="1"/>
+                    <GradientStop Color="#48e5c2" Offset="1"/>
                     <GradientStop Color="#FF41CECB"/>
                 </RadialGradientBrush>
             </Grid.Background>
         </Grid>
         <StackPanel>
-            <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="Black">
+            <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="Black" BorderThickness="1">
                 <StackPanel>
                     <Image Source="/Resources/Book.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Преподаватели" Width="150" Visibility="Collapsed" x:Name="btnTeachers" Click="Items_Click"/>
@@ -34,7 +34,7 @@
                     <Button Content="Студенты" Width="150" Visibility="Collapsed" x:Name="btnStudent" Click="Student_Click"/>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Grid.Column="0" Header="Ведомость" BorderBrush="Black">
+            <GroupBox Grid.Column="0" Header="Ведомость" BorderBrush="Black" >
                 <StackPanel>
                     <Button Content="Сессия" Width="150" Visibility="Collapsed" x:Name="btnSession" Click="Session_Click"/>
                     <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournal" Click="Journal_Click"/>

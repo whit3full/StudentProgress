@@ -12,7 +12,7 @@
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Color="#FF5FD1DD" Offset="1"/>
-                <GradientStop Color="#FF5FFFFB"/>
+                <GradientStop Color="#48e5c2"/>
             </RadialGradientBrush>
         </Grid.Background>
         <Label Content="Редактирование / Добавление" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"/>

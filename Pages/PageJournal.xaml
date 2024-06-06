@@ -22,14 +22,14 @@
                 <DataGridTextColumn Header="Оценка учащегося" Binding="{Binding Grade}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" Background="#FF5FD1DD"/>
+        <Grid Grid.Row="1" Background="#48e5c2"/>
         <WrapPanel Grid.Row="1" VerticalAlignment="Center">
-            <Button x:Name="BtnEdit" HorizontalAlignment="Left"  
+            <Button x:Name="BtnEdit" HorizontalAlignment="Left" Margin="5"  
                 Content="Редактировать" Click="BtnEdit_Click"/>
             <Button x:Name="BtnAdd" 
                     Content="Добавить" Click="BtnAdd_Click"/>
         </WrapPanel>
-        <Button x:Name="BtnDelete" HorizontalAlignment="Right" VerticalAlignment="Center"
+        <Button x:Name="BtnDelete" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"
                 Content="Удалить" Grid.Row="1" Click="BtnDelete_Click"/>
     </Grid>
 </Page>

@@ -16,25 +16,25 @@
         <Grid>
             <Grid.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#48e5c2" Offset="1"/>
-                    <GradientStop Color="#FF41CECB"/>
+                    <GradientStop Color="#333333" Offset="1"/>
                 </RadialGradientBrush>
             </Grid.Background>
         </Grid>
         <StackPanel>
-            <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="Black" BorderThickness="1">
+            <WrapPanel>
+                <Image Source="/Resources/Book.png" Width="50" HorizontalAlignment="Left"/>
+                <Label Content="Учет успеваемости"/>
+            </WrapPanel>
+            <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="#48e5c2" BorderThickness="2">
                 <StackPanel>
-                    <Image Source="/Resources/Book.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Преподаватели" Width="150" Visibility="Collapsed" x:Name="btnTeachers" Click="Items_Click"/>
                     <Button Content="Расписание" Width="150" Visibility="Collapsed" x:Name="btnSchedule" Click="btnSchedule_Click"/>
                     <Button Content="Предмет" Width="150" Visibility="Collapsed" x:Name="btnSubject" Click="btnSubject_Click"/>
-                    <Image Source="/Resources/Group.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Группы" Width="150" Visibility="Collapsed" x:Name="btnGroup" Click="Group_Click"/>
-                    <Image Source="/Resources/Student.png" Width="30" HorizontalAlignment="Left"/>
                     <Button Content="Студенты" Width="150" Visibility="Collapsed" x:Name="btnStudent" Click="Student_Click"/>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Grid.Column="0" Header="Ведомость" BorderBrush="Black" >
+            <GroupBox Grid.Column="0" Header="Ведомость" BorderBrush="#48e5c2" BorderThickness="2">
                 <StackPanel>
                     <Button Content="Сессия" Width="150" Visibility="Collapsed" x:Name="btnSession" Click="Session_Click"/>
                     <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournal" Click="Journal_Click"/>

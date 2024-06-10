@@ -303,7 +303,7 @@
       <DependentUpon>DataBase.edmx</DependentUpon>
       <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
-    <Content Include="Resources\Background.jpeg" />
+    <Resource Include="Resources\Background.jpeg" />
     <Resource Include="Resources\Password.png" />
     <Resource Include="Resources\Login.png" />
   </ItemGroup>

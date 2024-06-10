@@ -16,7 +16,7 @@
                 <DataGridTextColumn Header="Группа" Binding="{Binding Group.Name}"/>
                 <DataGridTextColumn Header="Студент" Binding="{Binding Student.FullName}"/>
                 <DataGridTextColumn Header="Зачет/Экзамен" Binding="{Binding TypeOfCertification}"/>
-                <DataGridTextColumn Header="Дата сдачи" Binding="{Binding DueDate}"/>
+                <DataGridTextColumn Header="Дата сдачи" Binding="{Binding DueDate, StringFormat=d}"/>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Grade}"/>
             </DataGrid.Columns>
         </DataGrid>

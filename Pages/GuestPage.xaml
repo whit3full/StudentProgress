@@ -8,10 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GuestPage">
 
-    <Grid Background="#5FD">
+    <Grid Background="#333333">
         <StackPanel>
-            <Label Content="Здравствуйте дорогой наш пользователь" Style="{StaticResource Lab}" FontSize="40" HorizontalAlignment="Center"/>
-            <TextBlock HorizontalAlignment="Center" FontSize="20" FontFamily="Times new roman" TextWrapping="Wrap" Text="Мы рады приветствовать вас на нашем замечательном ресурсе! Это приложение созданно, для студентов и преподавателей чтобы упростить учет ведомости. Поступайте в наш техникум и вы будете счастливым пользователем этой системы."/>
+            <Label Foreground="White" Content="Здравствуйте дорогой наш пользователь" Style="{StaticResource Lab}" FontSize="40" HorizontalAlignment="Center"/>
+            <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="20" FontFamily="Times new roman" TextWrapping="Wrap" Text="Мы рады приветствовать вас на нашем замечательном ресурсе! Это приложение созданно, для студентов и преподавателей чтобы упростить учет ведомости. Поступайте в наш техникум и вы будете счастливым пользователем этой системы."/>
         </StackPanel>
         <Image Source="/Resources/StudentPhoto.jpg" HorizontalAlignment="Center" VerticalAlignment="Top" Height="337" Margin="0,135,0,0" Width="532" />
     </Grid>

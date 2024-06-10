@@ -22,7 +22,7 @@
         </Grid>
         <StackPanel>
             <WrapPanel>
-                <Image Source="/Resources/Book.png" Width="50" HorizontalAlignment="Left"/>
+                <Image Source="/Resources/APT.png" Width="50" HorizontalAlignment="Left"/>
                 <Label Content="Учет успеваемости"/>
             </WrapPanel>
             <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="#48e5c2" BorderThickness="2">

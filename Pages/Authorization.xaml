@@ -33,11 +33,11 @@
         
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Source="/Resources/Login.png" Width="25"/>
+                <Image Source="/Resources/Login.png" Width="35"/>
                 <TextBox x:Name="TbLogin" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1" Margin="20"/>
             </WrapPanel>
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Source="/Resources/Password.png" Width="25"/>
+                <Image Source="/Resources/Password.png" Width="35"/>
                 <PasswordBox x:Name="TbPassword" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                  Grid.Column="1" Grid.Row="2" Style="{StaticResource PwB}" Visibility="Visible" Margin="20"/>
             </WrapPanel>

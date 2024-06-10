@@ -28,6 +28,8 @@
                 Content="Редактировать" Click="BtnEdit_Click"/>
             <Button x:Name="BtnAdd" 
                     Content="Добавить" Click="BtnAdd_Click"/>
+            <Button x:Name="BtnSaveExcel" Margin="5" Content="Сохранить в Excel"
+                    Click="BtnSaveExcel_Click"/>
         </WrapPanel>
         <Button x:Name="BtnDelete" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"
                 Content="Удалить" Grid.Row="1" Click="BtnDelete_Click"/>

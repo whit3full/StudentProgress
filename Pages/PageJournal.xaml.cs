@@ -1,7 +1,10 @@
 ﻿using StudentProgress.Utils;
+using Excel = Microsoft.Office.Interop.Excel;
 using StudentProgress.Model;
 using System;
+using System.IO;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,13 +17,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
 
 namespace StudentProgress.Pages
 {
     /// <summary>
     /// Логика взаимодействия для PageJournal.xaml
     /// </summary>
-    public partial class PageJournal : Page
+    [ComVisible(true)]
+    public partial class PageJournal : Page 
     {
         public PageJournal()
         {
@@ -67,6 +72,56 @@ namespace StudentProgress.Pages
                 StudentProgressEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 DgJournal.ItemsSource = StudentProgressEntities.GetContext().Journal.ToList();
             }
+        }
+       
+        private void BtnSaveExcel_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем данные из DataGrid
+            var dataGrid = (DataGrid)this.FindName("DgJournal");
+            var data = dataGrid.ItemsSource;
+
+            // Создаем экземпляр Excel.Application
+            var excelApp = new Excel.Application();
+
+            // Создаем новый Excel-файл
+            var workbook = excelApp.Workbooks.Add();
+            var worksheet = (Excel.Worksheet)workbook.ActiveSheet;
+
+            // Определяем стиль для заголовков
+            var headerStyle = worksheet.get_Range("A1", "A1").Font;
+            headerStyle.Bold = true;
+
+            // Экспортируем данные в Excel
+            int row = 1;
+            foreach (var item in data)
+            {
+                var properties = item.GetType().GetProperties();
+                for (int col = 0; col < properties.Length; col++)
+                {
+                    worksheet.Cells[row, col + 1] = properties[col].GetValue(item);
+                }
+                row++;
+            }
+
+            // Добавляем заголовки
+            row = 1;
+            foreach (var property in dataGrid.Columns)
+            {
+                worksheet.Cells[row, property.DisplayIndex + 1] = property.Header;
+            }
+
+            // Сохраняем файл
+            string filePath = @"C:\ExportedData.xlsx";
+            workbook.SaveAs(filePath, Excel.XlFileFormat.xlOpenXMLWorkbook);
+
+            // Закрываем Excel.Application
+            excelApp.Quit();
+
+            Marshal.ReleaseComObject(worksheet);
+            Marshal.ReleaseComObject(workbook);
+            Marshal.ReleaseComObject(excelApp);
+
+            MessageBox.Show("Данные экспортированы в файл " + filePath, "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

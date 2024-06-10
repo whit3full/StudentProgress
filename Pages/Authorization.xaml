@@ -20,6 +20,12 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid Grid.RowSpan="4" Grid.ColumnSpan="3">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Background.jpeg"/>
+        </Grid.Background>
+        </Grid>
+        
         <Ellipse Width="80" Height="80" Margin="10 0 0 0" HorizontalAlignment="Left" Stroke="Black" >
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Resources/APT.png" Stretch="Fill"></ImageBrush>

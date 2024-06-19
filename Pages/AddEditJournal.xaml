@@ -14,7 +14,7 @@
                 <GradientStop Color="#48e5c2"/>
             </RadialGradientBrush>
         </Grid.Background>
-        <Label Content="Редактирование / Добавление" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Редактирование / Добавление" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Foreground="#333333"/>
         <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
                 <TextBlock Text="Предмет:" FontSize="17"/>

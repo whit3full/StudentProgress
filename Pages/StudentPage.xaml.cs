@@ -1,4 +1,5 @@
 ﻿using StudentProgress.Model;
+using StudentProgress.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +30,13 @@ namespace StudentProgress.Pages
 
         private void CreateBtnStudent_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.SubForm.Navigate(new StudentCreateEdit(null));
         }
 
         private void EditBtnStudent_Click(object sender, RoutedEventArgs e)
         {
-          
+            var ObjectForEdit = DgStudent.SelectedItem;
+            Manager.SubForm.Navigate(new StudentCreateEdit((Student)ObjectForEdit));
 
         }
 

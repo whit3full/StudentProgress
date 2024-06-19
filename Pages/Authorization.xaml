@@ -31,7 +31,7 @@
                 <ImageBrush ImageSource="/Resources/APT.png" Stretch="Fill"></ImageBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <Rectangle Width="330" Height="210" Fill="#48e5c2" Stroke="#333333" RadiusX="10" RadiusY="10"
+        <Rectangle Width="330" Height="210" Fill="#3348E5C2" Stroke="#333333" RadiusX="10" RadiusY="10"
                    StrokeThickness="2"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
         <Label Content="Войдите в систему" Grid.ColumnSpan="3"
                HorizontalAlignment="Center" FontSize="40" Style="{StaticResource Lab}"/>

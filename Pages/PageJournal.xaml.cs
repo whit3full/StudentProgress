@@ -18,12 +18,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 
+
+
 namespace StudentProgress.Pages
 {
     /// <summary>
     /// Логика взаимодействия для PageJournal.xaml
     /// </summary>
-    public partial class PageJournal : Page 
+    public partial class PageJournal : Page
     {
         public PageJournal()
         {

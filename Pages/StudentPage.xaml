@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:StudentProgress.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StudentPage">
+      Title="StudentPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid>
@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <DataGrid x:Name="DgStudent" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ФИО студента" Binding="{Binding FullName}" Width="200"/>
+                    <DataGridTextColumn Header="ФИО Студента" Binding="{Binding FullName}" Width="250"/>
                     <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth, StringFormat=d}" Width="150"/>
                     <DataGridTextColumn Header="Номер телефона" Binding="{Binding NumberPhone}"/>
                 </DataGrid.Columns>

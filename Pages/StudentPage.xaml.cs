@@ -52,13 +52,22 @@ namespace StudentProgress.Pages
                     StudentProgressEntities.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
 
-                    DgStudent.ItemsSource = StudentProgressEntities.GetContext().Journal.ToList();
+                    DgStudent.ItemsSource = StudentProgressEntities.GetContext().Student.ToList();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
 
+            }
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                StudentProgressEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DgStudent.ItemsSource = StudentProgressEntities.GetContext().Student.ToList();
             }
         }
     }

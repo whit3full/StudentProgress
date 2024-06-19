@@ -46,8 +46,12 @@ namespace StudentProgress.Pages
         {
             StringBuilder errors = new StringBuilder();
 
-            if (_currentStudent.FullName == null)
-                errors = errors.AppendLine("Укажите ФИО студента");
+            if (_currentStudent.Surname == null)
+                errors = errors.AppendLine("Укажите фамилию студента");
+            if (_currentStudent.Name == null)
+                errors = errors.AppendLine("Укажите имя студента");
+            if (_currentStudent.Patronymic == null)
+                errors = errors.AppendLine("Укажите отчество студента");
             if (clndDateOfBirth.SelectedDate == null)
                 errors = errors.AppendLine("Укажите дату");
             if (_currentStudent.NumberPhone == null)

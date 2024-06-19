@@ -71,7 +71,7 @@ namespace StudentProgress.Pages
 
         private void Student_Click(object sender, RoutedEventArgs e)
         {
-            Manager.SubForm.Navigate(new Student());
+            Manager.SubForm.Navigate(new StudentPage());
         }
 
         private void Session_Click(object sender, RoutedEventArgs e)

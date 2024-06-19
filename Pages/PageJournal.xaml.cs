@@ -23,7 +23,6 @@ namespace StudentProgress.Pages
     /// <summary>
     /// Логика взаимодействия для PageJournal.xaml
     /// </summary>
-    [ComVisible(true)]
     public partial class PageJournal : Page 
     {
         public PageJournal()

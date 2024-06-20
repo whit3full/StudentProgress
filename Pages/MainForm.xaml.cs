@@ -2,6 +2,8 @@
 using StudentProgress.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,7 +88,26 @@ namespace StudentProgress.Pages
 
         private void btnSchedule_Click(object sender, RoutedEventArgs e)
         {
-            Manager.SubForm.Navigate(new PageSchedule());
+            // Путь к файлу Excel в проекте
+            string filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Schedule.xlsx");
+
+            // Проверяем, существует ли файл
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    // Открываем файл с помощью стандартного приложения, связанного с .xlsx файлами (Excel, если установлен)
+                    Process.Start(filePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при открытии файла: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Файл Excel не найден.");
+            }
         }
 
         private void btnSubject_Click(object sender, RoutedEventArgs e)

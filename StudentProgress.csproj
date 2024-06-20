@@ -141,6 +141,12 @@
     <Compile Include="Pages\PageStudentJournal.xaml.cs">
       <DependentUpon>PageStudentJournal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SessionEditPage.xaml.cs">
+      <DependentUpon>SessionEditPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SessionPage.xaml.cs">
+      <DependentUpon>SessionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\StudentCreateEdit.xaml.cs">
       <DependentUpon>StudentCreateEdit.xaml</DependentUpon>
     </Compile>
@@ -188,7 +194,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Session.xaml">
+    <Page Include="Pages\SessionEditPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SessionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,9 +236,6 @@
     </Compile>
     <Compile Include="Pages\PageSchedule.xaml.cs">
       <DependentUpon>PageSchedule.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Session.xaml.cs">
-      <DependentUpon>Session.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeacherPage.xaml.cs">
       <DependentUpon>TeacherPage.xaml</DependentUpon>

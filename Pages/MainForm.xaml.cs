@@ -76,7 +76,7 @@ namespace StudentProgress.Pages
 
         private void Session_Click(object sender, RoutedEventArgs e)
         {
-            Manager.SubForm.Navigate(new Session());
+            Manager.SubForm.Navigate(new SessionPage());
         }
 
         private void Journal_Click(object sender, RoutedEventArgs e)

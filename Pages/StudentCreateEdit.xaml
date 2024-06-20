@@ -34,7 +34,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Введите номер телефона:" FontSize="17"/>
-                <TextBox x:Name="df" Text="{Binding NumberPhone}" Width="250" Margin="10 0 0 0"/>
+                <TextBox x:Name="tbNumber" Text="{Binding NumberPhone}" Width="250" Margin="10 0 0 0"/>
             </StackPanel>
             <Button x:Name="btnSaveStudent" Content="Сохранить" Click="btnSaveStudent_Click"/>
         </StackPanel>

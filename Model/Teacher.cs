@@ -27,7 +27,7 @@ namespace StudentProgress.Model
         {
             get
             {
-                return Surname + " " + Name + " " + Patronymic;
+                return $"{Surname} {Name} {Patronymic}";
             }
         }
         public string Patronymic { get; set; }

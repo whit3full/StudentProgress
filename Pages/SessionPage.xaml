@@ -24,7 +24,7 @@
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Grade}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" Background="#48e5c2"/>
+        <Grid Grid.Row="1" Background="#333333"/>
         <WrapPanel Grid.Row="1" VerticalAlignment="Center">
             <Button x:Name="CreateBtnSession" Content="Добавить" 
                 Margin="5" Click="CreateBtnSession_Click"/>

@@ -22,7 +22,7 @@
                 <DataGridTextColumn Header="Оценка учащегося" Binding="{Binding Grade}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" Background="#48e5c2"/>
+        <Grid Grid.Row="1" Background="#333333"/>
         <WrapPanel Grid.Row="1" VerticalAlignment="Center">
             <Button x:Name="BtnEdit" HorizontalAlignment="Left" Margin="5"  
                 Content="Редактировать" Click="BtnEdit_Click"/>

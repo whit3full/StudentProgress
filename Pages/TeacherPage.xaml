@@ -21,7 +21,7 @@
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"  />
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" Background="#48e5c2"/>
+        <Grid Grid.Row="1" Background="#333333"/>
         <WrapPanel Grid.Row="1" VerticalAlignment="Center">
             <Button x:Name="CreateBtnTeacher" Content="Добавить" 
     Margin="5" Click="CreateBtnTeacher_Click"/>

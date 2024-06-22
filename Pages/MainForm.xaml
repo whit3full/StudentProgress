@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="260"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid>
@@ -22,23 +22,23 @@
         </Grid>
         <StackPanel>
             <WrapPanel>
-                <Image Source="/Resources/APT.png" Width="50" HorizontalAlignment="Left"/>
-                <Label Content="Учет успеваемости"/>
+                <Image Source="/Resources/APT.png" Width="60" Height="60" HorizontalAlignment="Left" Stretch="Fill"/>
+                <Label Content="Student Progress" HorizontalAlignment="Right" Margin="0" FontFamily="Times new roman" FontSize="20"/> 
             </WrapPanel>
-            <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="#48e5c2" BorderThickness="2">
+            <GroupBox Grid.Column="0" Header="Справочник" BorderBrush="#48e5c2" BorderThickness="2" Margin="0 0 0 0">
                 <StackPanel>
-                    <Button Content="Преподаватели" Width="150" Visibility="Collapsed" x:Name="btnTeachers" Click="Items_Click"/>
-                    <Button Content="Расписание" Width="150" Visibility="Collapsed" x:Name="btnSchedule" Click="btnSchedule_Click"/>
-                    <Button Content="Предмет" Width="150" Visibility="Collapsed" x:Name="btnSubject" Click="btnSubject_Click"/>
-                    <Button Content="Группы" Width="150" Visibility="Collapsed" x:Name="btnGroup" Click="Group_Click"/>
-                    <Button Content="Студенты" Width="150" Visibility="Collapsed" x:Name="btnStudent" Click="Student_Click"/>
+                    <Button Content="Преподаватели" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnTeachers" Click="Items_Click"/>
+                    <Button Content="Расписание" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnSchedule" Click="btnSchedule_Click"/>
+                    <Button Content="Предмет" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnSubject" Click="btnSubject_Click"/>
+                    <Button Content="Группы" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnGroup" Click="Group_Click"/>
+                    <Button Content="Студенты" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnStudent" Click="Student_Click"/>
                 </StackPanel>
             </GroupBox>
             <GroupBox Grid.Column="0" Header="Ведомость" BorderBrush="#48e5c2" BorderThickness="2">
                 <StackPanel>
-                    <Button Content="Сессия" Width="150" Visibility="Collapsed" x:Name="btnSession" Click="Session_Click"/>
-                    <Button Content="Журнал" Width="150" Visibility="Collapsed" x:Name="btnJournal" Click="Journal_Click"/>
-                    <Button Content="Журнал студента" Width="150" Visibility="Collapsed" x:Name="btnJournalStudent" Click="btnJournalStudent_Click"/>
+                    <Button Content="Сессия" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnSession" Click="Session_Click"/>
+                    <Button Content="Журнал" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnJournal" Click="Journal_Click"/>
+                    <Button Content="Журнал студента" Width="150" Visibility="Collapsed" Margin="5" x:Name="btnJournalStudent" Click="btnJournalStudent_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>

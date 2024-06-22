@@ -6,10 +6,11 @@
     <Application.Resources>
         <Style TargetType="GroupBox">
             <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
             <Setter Property="Background" Value="#333333"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="1"/>
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="0"/>
             <Setter Property="HeaderTemplate">
                 <Setter.Value>
                     <DataTemplate>
@@ -39,7 +40,10 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Times new Roman"/>
+        </Style>
 
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="White"/>
@@ -81,7 +85,7 @@
                         <Setter Property="FontSize" Value="16"/>
                         <Setter Property="FontFamily" Value="Segoe UI"/>
                         <Setter Property="Height" Value="30"/>
-                        <Setter Property="Margin" Value="1"/>
+                        <Setter Property="Margin" Value="0"/>
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
                                 <Setter Property="Background" Value="#48e5c2"/>
@@ -96,7 +100,7 @@
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="#48e5c2"/>
                         <Setter Property="Foreground" Value="Black"/>
-                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontSize" Value="17"/>
                         <Setter Property="FontFamily" Value="Segoe UI"/>
                         <Setter Property="Height" Value="30"/>
                         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -192,6 +196,7 @@
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -208,7 +213,7 @@
                                             </TransformGroup>
                                         </RadialGradientBrush.RelativeTransform>
                                         <GradientStop Offset="1" Color="#00000000"/>
-                                        <GradientStop Offset="0.3" Color="#FFFFFFFF"/>
+                                        <GradientStop Offset="0.3" Color="#48e5c2"/>
                                     </RadialGradientBrush>
                                 </Border.Background>
                                 <ContentPresenter HorizontalAlignment="Center"
@@ -244,6 +249,14 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="5" />
         </Style>
         <Style TargetType="ComboBox">
             <Setter Property="FontFamily" Value="Segoe UI"/>

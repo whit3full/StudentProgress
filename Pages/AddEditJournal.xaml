@@ -9,12 +9,9 @@
       Title="AddEditJournal">
 
     <Grid>
-        <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Color="#48e5c2"/>
-            </RadialGradientBrush>
-        </Grid.Background>
-        <Label Content="Редактирование / Добавление" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" Foreground="#333333"/>
+        <Rectangle Width="450" Height="310" Fill="#B248E5C2" Stroke="#333333" RadiusX="10" RadiusY="10"
+           StrokeThickness="2"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Label Content="Редактирование / Добавление" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" FontFamily="Times new Roman" Foreground="#333333"/>
         <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
                 <TextBlock Text="Предмет:" FontSize="17"/>

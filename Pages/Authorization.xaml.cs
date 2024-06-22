@@ -1,4 +1,5 @@
-﻿using StudentProgress.Model;
+﻿using Microsoft.Office.Interop.Excel;
+using StudentProgress.Model;
 using StudentProgress.Utils;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace StudentProgress.Pages
     /// <summary>
     /// Логика взаимодействия для Authorization.xaml
     /// </summary>
-    public partial class Authorization : Page
+    public partial class Authorization : System.Windows.Controls.Page
     {
         public Authorization()
         {
@@ -29,6 +30,17 @@ namespace StudentProgress.Pages
 
         private void BtnJoin_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
+            if (string.IsNullOrEmpty(TbLogin.Text))
+                errors = errors.AppendLine("Укажите логин");
+            if (string.IsNullOrEmpty(TbPassword.Password))
+                errors = errors.AppendLine("Укажите пароль");
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             try
             {
                 var UserObj = StudentProgressEntities.GetContext().Users.FirstOrDefault(x => x.Login == TbLogin.Text && x.Password == TbPassword.Password);
@@ -55,6 +67,7 @@ namespace StudentProgress.Pages
                             break;
                     }
                 }
+                
             }
             catch (Exception Ex)
             {

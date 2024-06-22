@@ -17,7 +17,7 @@
         <Grid Grid.Row="0" Background="#333333">
             <ComboBox x:Name="cmbGroup" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Width="170" Height="40" DisplayMemberPath="Name" SelectionChanged="cmbGroup_SelectionChanged" SelectedIndex="0"/>
         </Grid>
-        <DataGrid x:Name="DgJournal" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+        <DataGrid x:Name="DgJournal" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" ColumnWidth="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"/>
                 <DataGridTextColumn Header="Курс учащегося" Binding="{Binding Group.Course }" />

@@ -25,25 +25,20 @@
                 <ImageBrush ImageSource="/Resources/Background.jpeg"/>
         </Grid.Background>
         </Grid>
-        
-        <Ellipse Width="80" Height="80" Margin="10 0 0 0" HorizontalAlignment="Left" Stroke="Black" VerticalAlignment="Center">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="/Resources/APT.png" Stretch="Fill"></ImageBrush>
-            </Ellipse.Fill>
-        </Ellipse>
+
+        <Image Source="/Resources/APT.png" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
         <Rectangle Width="330" Height="210" Fill="#3348E5C2" Stroke="#333333" RadiusX="10" RadiusY="10"
                    StrokeThickness="2"  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-        <Label Content="Войдите в систему" Grid.ColumnSpan="3"
-               HorizontalAlignment="Center" FontSize="40" Style="{StaticResource Lab}"/>
-        
-        
+
+
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Source="/Resources/Login.png" Width="35"/>
+                <Image Source="/Resources/Login.png" Width="50" Height="50"/>
                 <TextBox x:Name="TbLogin" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1" Margin="20"/>
             </WrapPanel>
             <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Image Source="/Resources/Password.png" Width="35"/>
+                <Image Source="/Resources/Password.png" Width="50" Height="50"/>
                 <PasswordBox x:Name="TbPassword" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                  Grid.Column="1" Grid.Row="2" Style="{StaticResource PwB}" Visibility="Visible" Margin="20"/>
             </WrapPanel>

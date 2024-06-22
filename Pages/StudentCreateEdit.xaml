@@ -18,15 +18,15 @@
         <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
                 <TextBlock Text="Введите фамилию:" FontSize="17"/>
-                <TextBox x:Name="SurnameStudent" Text="{Binding Surname}" Width="250" Margin="10 0 0 0"/>
+                <TextBox x:Name="SurnameStudent" Text="{Binding Surname}" Width="250" Height="30" Margin="10 0 0 0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
                 <TextBlock Text="Введите Имя:" FontSize="17"/>
-                <TextBox x:Name="NameStudent" Text="{Binding Name}" Width="250" Margin="10 0 0 0"/>
+                <TextBox x:Name="NameStudent" Text="{Binding Name}" Width="250" Height="30" Margin="10 0 0 0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
                 <TextBlock Text="Введите Отчество:" FontSize="17"/>
-                <TextBox x:Name="PatronymicStudent" Text="{Binding Patronymic}" Width="250" Margin="10 0 0 0"/>
+                <TextBox x:Name="PatronymicStudent" Text="{Binding Patronymic}" Width="250" Height="30" Margin="10 0 0 0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Выберите дату рождения:" FontSize="17"/>
@@ -34,7 +34,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Введите номер телефона:" FontSize="17"/>
-                <TextBox x:Name="tbNumber" Text="{Binding NumberPhone}" Width="250" Margin="10 0 0 0"/>
+                <TextBox x:Name="tbNumber" Text="{Binding NumberPhone}" Width="250" Height="30" Margin="10 0 0 0"/>
             </StackPanel>
             <Button x:Name="btnSaveStudent" Content="Сохранить" Click="btnSaveStudent_Click"/>
         </StackPanel>

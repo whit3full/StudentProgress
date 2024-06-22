@@ -34,7 +34,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10 0 10 10">
                 <TextBlock Text="Предмет:" FontSize="17"/>
-                <ComboBox x:Name="cmbSubject" SelectedItem="{Binding Subject}" DisplayMemberPath="SubjectName" Width="250" Margin="10 0 0 0"/>
+                <ComboBox x:Name="cmbSubject" SelectedItem="{Binding Subject}" DisplayMemberPath="SubjectName" Width="250" Height="30" Margin="10 0 0 0"/>
             </StackPanel>
             <Button x:Name="btnSaveTeacher" Content="Сохранить" Click="btnSaveTeacher_Click"/>
         </StackPanel>

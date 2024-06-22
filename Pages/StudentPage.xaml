@@ -18,7 +18,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ФИО Студента" Binding="{Binding FullName}" Width="250"/>
                     <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateOfBirth, StringFormat=d}" Width="150"/>
-                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding NumberPhone}"/>
+                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding NumberPhone}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Grid Grid.Row="1" Background="#333333"/>

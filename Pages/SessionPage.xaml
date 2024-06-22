@@ -16,9 +16,9 @@
         <DataGrid x:Name="DgSession" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"  />
-                <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.FullName}"/>
-                <DataGridTextColumn Header="Группа" Binding="{Binding Group.Name}"/>
-                <DataGridTextColumn Header="Студент" Binding="{Binding Student.FullName}"/>
+                <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.FullName}" Width="*"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Group.Name}" />
+                <DataGridTextColumn Header="Студент" Binding="{Binding Student.FullName}" Width="*"/>
                 <DataGridTextColumn Header="Зачет/Экзамен" Binding="{Binding TypeOfCertification}"/>
                 <DataGridTextColumn Header="Дата сдачи" Binding="{Binding DueDate, StringFormat=d}"/>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Grade}"/>

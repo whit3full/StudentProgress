@@ -10,20 +10,24 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DgJournal" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="0">
+        <Grid Grid.Row="0" Background="#333333">
+            <ComboBox x:Name="cmbGroup" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Width="170" Height="40" DisplayMemberPath="Name" SelectionChanged="cmbGroup_SelectionChanged" SelectedIndex="0"/>
+        </Grid>
+        <DataGrid x:Name="DgJournal" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.SubjectName}"/>
-                <DataGridTextColumn Header="Курс учащегося" Binding="{Binding Group.Course}" />
-                <DataGridTextColumn Header="ФИО Студента" Binding="{Binding Student.FullName}"/>
+                <DataGridTextColumn Header="Курс учащегося" Binding="{Binding Group.Course }" />
+                <DataGridTextColumn Header="ФИО Студента" Binding="{Binding Student.FullName}" Width="*"/>
                 <DataGridTextColumn Header="Дата выставления оценки" Binding="{Binding Date, StringFormat=d}"/>
                 <DataGridTextColumn Header="Оценка учащегося" Binding="{Binding Grade}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="1" Background="#333333"/>
-        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+        <Grid Grid.Row="2" Background="#333333"/>
+        <WrapPanel Grid.Row="2" VerticalAlignment="Center">
             <Button x:Name="BtnEdit" HorizontalAlignment="Left" Margin="5"  
                 Content="Редактировать" Click="BtnEdit_Click"/>
             <Button x:Name="BtnAdd" 
@@ -32,6 +36,6 @@
                     Click="BtnSaveExcel_Click"/>
         </WrapPanel>
         <Button x:Name="BtnDelete" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"
-                Content="Удалить" Grid.Row="1" Click="BtnDelete_Click"/>
+                Content="Удалить" Grid.Row="2" Click="BtnDelete_Click"/>
     </Grid>
 </Page>
